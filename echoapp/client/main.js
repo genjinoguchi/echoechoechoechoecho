@@ -22,7 +22,21 @@ Template.home.helpers({
 })
 
 
+Template.new_post.onRendered(function() {
+    console.log("Rendered!")
+})
 
+Template.new_post.helpers({
+    userID() {
+        return "notjenji"
+    }
+})
+
+Template.new_post.events({
+    'click submit'(event, instance) {
+        
+    }
+})
 
 /*
 Template.hello.onCreated(function helloOnCreated() {
