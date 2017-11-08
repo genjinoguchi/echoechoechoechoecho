@@ -127,9 +127,64 @@ body {
     font-size: 50pt;
     padding-left: 20px;
     font-weight: lighter;
+    padding-top: 30px;
 }
 
-input {
+.post-input {
     background-color: #E4F1FD;
     text-decoration: none;
+    border:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-radius: 5px;
+    font-size: 15pt;
+    color: #348BD6;
+    padding-left: 10px;
+    width: 50%;
 }
+
+textarea:focus, input:focus, textarea{
+    outline: none;
+    text-decoration: none;
+    border:none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+textarea {
+    background-color: transparent;
+    color: white;
+    width: 80%;
+    height: 500px;
+    color: white;
+    padding-left: 30px;
+    font-size: 17pt;
+
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  /*padding-left: 30px;*/
+  color: white;
+}
+
+.submit-button {
+    color: white;
+    border: none;
+    font-size: 15pt;
+    background-color: #3FA2F7;
+    border-radius: 5px;
+}
+
+.new-post-submit {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: white;
+    color: #3FA2F7;
+    font-size: 14pt;
+}
+

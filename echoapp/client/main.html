@@ -4,7 +4,7 @@
 </head>
 
 <body>
-  {{> post}}
+  {{> new_post}}
 </body>
 
 <template name="home">
@@ -90,12 +90,14 @@
 
   <div class="col-md-8 col-centered">
     <div class="comment-box col-centered">
+      <div class="break"></div>
       <form action="">
-        <input type="text" name="reply-text">
-        <button type="submit">submit</button>
+        <input class="post-input" type="text" name="reply-text">
+        <button class="submit-button" type="submit">submit</button>
       </form>
     </div>
   </div>
+  <div class="break"></div>
 
 </template>
 
@@ -106,9 +108,8 @@
         This is the prompt given.
       </div>
       <form onsubmit="">
-        <label for="msg">Describe your opinion:</label>
-        <textarea id="msg" name="user_message"></textarea>
-        <button type="submit">submit</button>
+        <textarea id="msg" name="user_message" placeholder="describe your opinion"></textarea>
+        <button class="new-post-submit" type="submit">submit</button>
       </form>
     </div>
 </template>
