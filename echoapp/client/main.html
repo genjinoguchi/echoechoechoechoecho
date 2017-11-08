@@ -3,20 +3,19 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 
+<!--
 <body>
   {{> post}}
 </body>
+-->
 
 <template name="home">
   <div class="container-fluid">
     <div class="row">
       {{> new_card}}
-      {{> card }}
-      {{> card }}
-      {{> card }}
-      {{> card }}
-      {{> card }}
-      {{> card }}
+      {{#each posts}}
+        {{> card}}
+      {{/each}}
     </div>
   </div>
 </template>
@@ -25,10 +24,10 @@
   <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="content-card">
       <div class="card-title">
-          Lorem Ipsum
+          {{this.title}}
       </div>
       <div class="card-description">
-        Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari
+        {{this.description}}
       </div>
       <div class="read-more">
         read more >
@@ -112,4 +111,3 @@
       </form>
     </div>
 </template>
-
