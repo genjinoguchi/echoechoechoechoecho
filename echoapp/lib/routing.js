@@ -10,7 +10,7 @@ FlowRouter.route("/", {
 FlowRouter.route("/new", {
     name: "New_Post",
     action(params, queryParams) {
-        BlazeLayout.render("new-post");
+        BlazeLayout.render("new_post");
     }
 })
 
