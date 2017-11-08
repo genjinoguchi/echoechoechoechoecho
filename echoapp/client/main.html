@@ -4,8 +4,11 @@
 </head>
 
 <body>
+  {{> post}}
+</body>
+
+<template name="home">
   <div class="container-fluid">
-    {{> home}}
     <div class="row">
       {{> new_card}}
       {{> card }}
@@ -15,12 +18,7 @@
       {{> card }}
       {{> card }}
     </div>
-
   </div>
-</body>
-
-<template name="home">
-  <p class="home"> Home </p>
 </template>
 
 <template name="card">
@@ -45,6 +43,24 @@
       <div class="new-opinion">
         add new opinion +
       </div>
+    </div>
+  </div>
+</template>
+
+<template name="post">
+  <div class="blue-banner">
+    <div class="row">
+        <div class="col-md-6">
+            <p class="post-title">
+              Loresm ipsum dolor sasit ljdsf oihe as;ldkfj asldkfja
+            </p>
+        </div>
+        <div class="col-md-6">
+          <p class="post-description">
+              Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari his at, an pri suas zril. Ad nam fugit periculis, Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari his at, an pri suas zril. Ad nam fugit periculis, per vidit mutat tamquam et, omnium
+          </p>
+        </div>
+
     </div>
   </div>
 </template>

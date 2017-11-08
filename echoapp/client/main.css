@@ -29,7 +29,7 @@ body {
     color: #1385DB;
     text-align: center;
     font-weight: bold;
-    padding-top: 25px;
+    padding-top: 40px;
     font-size: 25pt;
 }
 
@@ -48,4 +48,36 @@ body {
 
 .new-opinion {
     color: white;
+    text-align: center;
+    line-height: 400px;
+    font-size: 16pt;
+}
+
+.new-post-box {
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+    width: 100%;
+    height: 400px;
+}
+
+.blue-banner {
+    background-color: #1385DB;
+    width: 100%;
+    height: 500px;
+    padding: 5% 0;
+}
+
+.post-title {
+    color: white;
+    text-align: center;
+    font-size: 50pt;
+    padding: 5% 0;
+}
+
+.post-description {
+    color: white;
+    font-size: 15pt;
+    padding: 5% 0;
+    padding-top: 15%;
 }
