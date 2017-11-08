@@ -28,7 +28,7 @@ Meteor.startup(() => {
 
 // Server Methods
 Meteor.methods({
-    create_post: function (user, post_title, post_description, post_content) {
+    create_post: function (user, post_title, post_content) {
         // Takes in username and post_content, returns the id of the new post.
         if (PostData.find({ type : "global ids" }).count() == 0) {
             PostData.insert({ type: "global ids", global_pid : 0, global_cid : 0 });
@@ -43,7 +43,6 @@ Meteor.methods({
             pid : temp,
             type : "post",
             title : post_title,
-            description : post_description,
             content : post_content
         });
 
