@@ -31,7 +31,7 @@
         {{this.description}}
       </div>
       <div class="break"></div>
-      <a href="" class="read-more">
+      <a href="/post/{{this.pid}}" class="read-more">
         read more >
       </a>
     </div>
@@ -53,23 +53,20 @@
     <div class="row">
         <div class="col-md-6">
             <p class="post-title">
-              Loresm ipsum dolor sasit ljdsf oihe as;ldkfj asldkfja
+              {{post.title}}
             </p>
         </div>
         <div class="col-md-6 col-md-offset-3">
           <p class="post-description">
-              Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari his at, an pri suas zril. Ad nam fugit periculis, Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari his at, an pri suas zril. Ad nam fugit periculis, per vidit mutat tamquam et, omnium
-          </p>
+                {{post.description}}
+            </p>
         </div>
     </div>
   </div>
   <div class="break"></div>
-    {{> comment}}
-    {{> comment}}
-    {{> comment}}
-    {{> comment}}
-    {{> comment}}
-    {{> comment}}
+    {{#each comments}}
+        {{> comment}}
+    {{/each}}
     {{> reply}}
     <div class="break"></div>
 </template>
@@ -78,10 +75,10 @@
     <div class="col-md-8 col-centered">
       <div class="comment-box">
         <div class="username">
-            Username <span class="time"> 1:45 pm </span>
+            {{this.nickname}}
         </div>
         <div class="comment">
-            Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari his at, an pri suas zril. Ad nam fugit periculis, Lorem ipsum dolor sit amet, qui iudicabit
+            {{this.content}}
         </div>
       </div>
   </div>
@@ -92,10 +89,8 @@
   <div class="col-md-8 col-centered">
     <div class="comment-box col-centered">
       <div class="break"></div>
-      <form action="">
         <input class="post-input" placeholder="write a response" type="text" name="reply-text">
-        <button class="submit-button">submit</button>
-      </form>
+        <button class="submit-reply-button">submit</button>
     </div>
   </div>
   <div class="break"></div>
@@ -103,16 +98,13 @@
 </template>
 
 
-<template name="new_post">
-    <div class="all-blue">
+<template name="new_post"> <div class="all-blue">
       <div class="new-post-title">
         What is your opinion?
       </div>
-      <form onsubmit="">
         <textarea class="new_post" id="username-id" name="username" placeholder="Give us a nickname"></textarea>
         <textarea id="new-title-id" name="new-title" placeholder="in one sentence, describe your opinion"></textarea>
         <textarea id="description-id" name="description" placeholder="give us some more details on why you think that"></textarea>
         <button class="new-post-submit" type="submit">submit</button>
-      </form>
     </div>
 </template>

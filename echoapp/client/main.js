@@ -37,12 +37,63 @@ Template.new_post.events({
     'click .new-post-submit'(event, instance) {
         var title = $("#new-title-id").val();
         var id = $("#username-id").val();
-        var post_content = $("#description-id")
-        alert(post_content)
+        var post_content = $("#description-id").val();
+        console.log(title.toString() + id.toString() + post_content.toString());
         Meteor.call("create_post", id, title, post_content, function(err, result) {
-            alert("poop")
             if (err) console.warn(err);
-            FlowRouter.go("/post/" + result);
+            // FlowRouter.go("/post/" + result); TODO uncomment this
+            FlowRouter.go("/")
+        });
+    }
+})
+
+Template.post.onRendered(function() {
+    console.log("Rendered!")
+    /*
+    Tracker.autorun(() => {
+        Meteor.subscribe('post', { 'post': Session.get('post') }),
+        Meteor.subscribe('comments', { 'comments': Session.get('comments')}
+    });
+    */
+    var post_id = parseInt(FlowRouter.current().params._pid);
+    Meteor.call("get_post", post_id, function(err, result) {
+        if (err) console.warn(err);
+        console.log(result)
+        Session.set("post", result);
+    })
+    Meteor.call("get_post_comments", post_id, function(err, result) {
+        if (err) console.warn(err);
+        Session.set("comments", result);
+    })
+})
+
+Template.post.helpers({
+    userID() {
+        return "notjenji"
+    },
+    post() {
+        return Session.get("post")
+    },
+    comments() {
+        return Session.get("comments")
+    }
+})
+
+Template.post.events({
+    'click .submit-reply-button'(event, instance) {
+        var id = "not jenji"
+        var post_id = parseInt(FlowRouter.current().params._pid);
+        var comment_content = $(".post-input").val();
+        Meteor.call("add_comment", id, post_id, comment_content, function(err, result) {
+            if (err) console.warn(err);
+            // FlowRouter.go("/post/" + result); TODO uncomment this
+            //FlowRouter.go("/")
+            var post_id = parseInt(FlowRouter.current().params._pid);
+            Meteor.call("get_post_comments", post_id, function(err, result) {
+                if (err) console.warn(err);
+                console.log(result);
+                Session.set("comments", result);
+            })
         });
     }
 })
