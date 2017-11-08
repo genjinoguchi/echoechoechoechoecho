@@ -1,1 +1,31 @@
 /* CSS declarations go here */
+body {
+    font-family: 'karla';
+    background-color: #FEFEFE;
+}
+
+.home {
+    color: #1385DB;
+    padding-top: 20px;
+}
+
+.content_card {
+    width: 100%;
+    height: 400px;
+    background-color: #E1F0FE;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    position: relative;
+}
+
+.new-card {
+    background-color: black;
+}
+
+.card_title {
+    color: #1385DB;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 25px;
+}
