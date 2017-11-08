@@ -1,1 +1,51 @@
 /* CSS declarations go here */
+body {
+    font-family: sans-serif;
+    background-color: #FEFEFE;
+}
+
+.home {
+    color: #1385DB;
+    padding-top: 20px;
+}
+
+.content-card {
+    width: 100%;
+    height: 400px;
+    background-color: #E1F0FE;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.new-card {
+    background-color: #1385DB;
+}
+
+.card-title {
+    color: #1385DB;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 25px;
+    font-size: 25pt;
+}
+
+.card-description {
+    color: #3D83B8;
+    font-size: 15pt;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.read-more {
+    text-align: center;
+    color: #1385DB;
+    padding-top: 15px;
+}
+
+.new-opinion {
+    color: white;
+}
