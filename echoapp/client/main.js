@@ -13,17 +13,14 @@ Template.home.helpers({
         return "notjenji"
     },
     posts() {
-        loadPosts()
+        Meteor.call("get_all_posts", function (err, result) {
+            if (err) console.warn(err)
+            Session.set("posts", result)
+        });
         return Session.get("posts")
     }
 })
 
-function loadPosts() {
-    Meteor.call("get_all_posts", function (err, result) {
-        if (err) console.warn(err)
-        Session.set("posts", result)
-    });
-}
 
 
 
