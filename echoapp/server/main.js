@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
+import '/lib/routing.js'
 
 // API configuration
 Meteor.startup(() => {
     // startup stuff here
-
 })
 
 // Server Methods
@@ -66,23 +66,3 @@ Meteor.methods({
         }
     }
 })
-
-/*
-// Server methods
-
-Meteor.methods({
-  query: function (q, opts) {
-
-    // debugging queries
-    console.log("server:", q, opts)
-
-    // sync version of our API async func
-    var syncT = Meteor.wrapAsync(T.get, T)
-
-    // call sync fn with params
-    var result = syncT(q, opts)
-    return result
-
-  },
-})
-*/
