@@ -1,6 +1,7 @@
 <head>
   <title>echoapp</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <!--
@@ -9,7 +10,7 @@
 </body>
 -->
 
-<template name="home">
+<template name="homer_simpson">
   <div class="container-fluid">
     <div class="row">
       {{> new_card}}
@@ -29,9 +30,10 @@
       <div class="card-description">
         {{this.description}}
       </div>
-      <div class="read-more">
+      <div class="break"></div>
+      <a href="" class="read-more">
         read more >
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -39,9 +41,9 @@
 <template name="new_card">
   <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="content-card new-card">
-      <div class="new-opinion">
+      <a href="" class="new-opinion">
         add new opinion +
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -91,7 +93,7 @@
     <div class="comment-box col-centered">
       <div class="break"></div>
       <form action="">
-        <input class="post-input" type="text" name="reply-text">
+        <input class="post-input" placeholder="write a response" type="text" name="reply-text">
         <button class="submit-button" type="submit">submit</button>
       </form>
     </div>
@@ -104,10 +106,12 @@
 <template name="new_post">
     <div class="all-blue">
       <div class="new-post-title">
-        This is the prompt given.
+        What is your opinion?
       </div>
       <form onsubmit="">
-        <textarea id="msg" name="user_message" placeholder="describe your opinion"></textarea>
+        <textarea class="new_post" id="username-id" name="username" placeholder="Give us a nickname"></textarea>
+        <textarea id="new-title-id" name="new-title" placeholder="in one sentence, describe your opinion"></textarea>
+        <textarea id="description-id" name="description" placeholder="give us some more details on why you think that"></textarea>
         <button class="new-post-submit" type="submit">submit</button>
       </form>
     </div>
