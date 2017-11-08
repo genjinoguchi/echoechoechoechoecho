@@ -1,14 +1,15 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
 import { Session } from 'meteor/session';
+import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import './main.html';
 
-Template.home.onRendered(function() {
+Template.homer_simpson.onRendered(function() {
     console.log("Rendered!")
 })
 
-Template.home.helpers({
+Template.homer_simpson.helpers({
     userID() {
         return "notjenji"
     },
@@ -33,8 +34,16 @@ Template.new_post.helpers({
 })
 
 Template.new_post.events({
-    'click submit'(event, instance) {
-        
+    'click .new-post-submit'(event, instance) {
+        var title = $("#new-title-id").val();
+        var id = $("#username-id").val();
+        var post_content = $("#description-id")
+        alert(post_content)
+        Meteor.call("create_post", id, title, post_content, function(err, result) {
+            alert("poop")
+            if (err) console.warn(err);
+            FlowRouter.go("/post/" + result);
+        });
     }
 })
 
