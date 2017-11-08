@@ -3,9 +3,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 
-<template name="App_body">
-
-</template>
+<body>
+  {{> post}}
+</body>
 
 <template name="home">
   <div class="container-fluid">
@@ -55,12 +55,61 @@
               Loresm ipsum dolor sasit ljdsf oihe as;ldkfj asldkfja
             </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 col-md-offset-3">
           <p class="post-description">
               Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari his at, an pri suas zril. Ad nam fugit periculis, Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari his at, an pri suas zril. Ad nam fugit periculis, per vidit mutat tamquam et, omnium
           </p>
         </div>
-
     </div>
   </div>
+  <div class="break"></div>
+    {{> comment}}
+    {{> comment}}
+    {{> comment}}
+    {{> comment}}
+    {{> comment}}
+    {{> comment}}
+    {{> reply}}
+    <div class="break"></div>
 </template>
+
+<template name="comment">
+    <div class="col-md-8 col-centered">
+      <div class="comment-box">
+        <div class="username">
+            Username <span class="time"> 1:45 pm </span>
+        </div>
+        <div class="comment">
+            Lorem ipsum dolor sit amet, qui iudicabit intellegam ei, equidem inermis concludaturque pri eu. Veniam explicari his at, an pri suas zril. Ad nam fugit periculis, Lorem ipsum dolor sit amet, qui iudicabit
+        </div>
+      </div>
+  </div>
+</template>
+
+<template name="reply">
+
+  <div class="col-md-8 col-centered">
+    <div class="comment-box col-centered">
+      <form action="">
+        <input type="text" name="reply-text">
+        <button type="submit">submit</button>
+      </form>
+    </div>
+  </div>
+
+</template>
+
+
+<template name="new_post">
+    <div class="all-blue">
+      <div class="new-post-title">
+        This is the prompt given.
+      </div>
+      <form onsubmit="">
+        <label for="msg">Describe your opinion:</label>
+        <textarea id="msg" name="user_message"></textarea>
+        <button type="submit">submit</button>
+      </form>
+    </div>
+</template>
+
