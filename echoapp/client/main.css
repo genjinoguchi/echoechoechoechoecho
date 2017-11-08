@@ -53,6 +53,10 @@ body {
     font-size: 16pt;
 }
 
+a {
+    text-align: center;
+}
+
 .new-post-box {
     border: solid;
     border-color: black;
@@ -130,6 +134,7 @@ body {
     padding-top: 30px;
 }
 
+
 .post-input {
     background-color: #E4F1FD;
     text-decoration: none;
@@ -157,7 +162,7 @@ textarea {
     background-color: transparent;
     color: white;
     width: 80%;
-    height: 500px;
+    height: auto;
     color: white;
     padding-left: 30px;
     font-size: 17pt;
