@@ -1,6 +1,6 @@
 /* CSS declarations go here */
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto-light', sans-serif;
     background-color: #FEFEFE;
 }
 
@@ -62,17 +62,22 @@ body {
 }
 
 .blue-banner {
-    background-color: #1385DB;
+    background-color: #348BD6;
     width: 100%;
     height: 500px;
     padding: 5% 0;
 }
 
+.break {
+    height: 30px;
+}
+
 .post-title {
     color: white;
-    text-align: center;
+    text-align: left;
     font-size: 50pt;
     padding: 5% 0;
+    padding-left: 40px;
 }
 
 .post-description {
@@ -80,4 +85,33 @@ body {
     font-size: 15pt;
     padding: 5% 0;
     padding-top: 15%;
+}
+
+.comment-box {
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    color: #297FCA;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+.username {
+    font-size: 16pt;
+    position: relative;
+    font-weight: bold;
+}
+
+.time {
+    font-weight: lighter;
+    font-size: 12pt;
+}
+
+.comment {
+    margin-top: 10px;
+    color: #297FCA;
 }
