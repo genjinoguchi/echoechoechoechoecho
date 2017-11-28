@@ -6,14 +6,14 @@
 
 
 <body>
-  {{> new}}
+  {{> post}}
 </body>
 
-<template name="new">
+<template name="new_home">
   <div class="welcome">
     <div class="logo"></div>
     <div class="welcome-text">
-      Welcome to _____! This is a place where we have a weekly discussion on current events. Every Friday at ____, we post a link to a post where you can read up on a current event, and have discussion with other people on your thoughts and opinions about what you read. We pull articles from <a href="https://www.allsides.com/unbiased-balanced-news">AllSides</a> and give prompts to guide conversations in the comments section.
+      Welcome to _____! This is a place where we have a weekly discussion on current events. Every Friday at ____, we post a link to a post where you can read up on a current event, and have discussion with other people on your thoughts and opinions about what you read. We pull articles from <a href="https://www.allsides.com/unbiased-balanced-news link">AllSides</a> and give prompts to guide conversations in the comments section.
     </div>
   </div>
   <div class="todays-post">
@@ -21,15 +21,73 @@
     <div class="todays-card">
       <div class="todays-post-title">Conyers steps down, Pelosi criticized</div>
       <div class="todays-post-description">In response to sexual misconduct accusations, Rep John Conyers, D-Michigan, stepped down from the House Judiciary Committee where he has served as the ranking Democrat. House Minority Leader Nancy Pelosi, D-California, has been criticized for defending him after strongly</div>
-      <div class="join">join the discussion! >></div>
+      <div class="join"> <a href="">join the discussion!>> </a></div>
     </div>
+  </div>
 
+  <div class="previous-discussions">
+    <div class="todays-post-header">Previous Discussions</div>
+
+    <div class="todays-card">
+      <div class="todays-post-title">Cards Against Humanity Sets Plan to Delay Border Wall</div>
+      <div class="todays-post-description">The company behind the popular game Cards Against Humanity has purchased land on the U.S.-Mexico border and hired an eminent domain law firm to make the construction of Trump's border wall "as time-consuming and expensive as possible."</div>
+      <div class="join"> <a href="">view previous discussion>></a> </div>
+    </div>
+    <div class="gap"></div>
+    <div class="todays-card">
+      <div class="todays-post-title">Donald Trump Jr. and WikiLeaks Correspondence</div>
+      <div class="todays-post-description">One month before the presidential election, President Trump tweeted about John Podesta's hacked emails 15 minutes after WikiLeaks asked Donald Trump Jr. to do so in a secret exchange.s</div>
+      <div class="join"><a href="">view previous discussion>></a> </div>
+    </div>
+    <div class="gap"></div>
   </div>
 </template>
 
 
 
 
+
+
+
+
+
+<template name="post">
+  <div class="welcome">
+    <div class="back"> <a href="">BACK</a> </div>
+    <div class="headline">Conyers steps down, Pelosi criticized</div>
+    <div class="post-description">In response to sexual misconduct accusations, Rep John Conyers, D-Michigan, stepped down from the House Judiciary Committee where he has served as the ranking Democrat. House Minority Leader Nancy Pelosi, D-California, has been criticized for defending him after strongly</div>
+  </div>
+
+  <div class="articles">
+    <div class="gap"></div>
+    <div class="todays-post-header no-padding">Articles on this event</div>
+    <div class="subheader">Please read all three articles before participating</div>
+    <div class="gap"></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4 article">
+          Pelosi stumbles on alleged harassment in her own ranks
+          <div class="read"><a target="blank" href="http://www.allsides.com/news/2017-11-27-1014/pelosi-stumbles-alleged-harassment-her-own-ranks">read ></a></div>
+        </div>
+        <div class="col-md-4 article">
+          John Conyers Steps Down From Judiciary Committee Role Amid Sexual Misconduct Claims
+          <div class="read"><a target="blank" href="https://www.npr.org/sections/thetwo-way/2017/11/26/566605296/john-conyers-steps-down-from-judiciary-committee-role-amid-sexual-misconduct-cla">read ></a></div>
+        </div>
+        <div class="col-md-4 article">
+          Pelosi faces backlash for questioning Conyers accusers
+          <div class="read"><a target="blank" href="http://www.foxnews.com/politics/2017/11/27/pelosi-faces-backlash-for-questioning-conyers-accusers.html">read ></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="discussion">
+    <div class="gap"></div>
+    <div class="todays-post-header">Discussion</div>
+
+    <div></div>
+  </div>
+</template>
 
 
 

@@ -53,9 +53,7 @@ body {
     font-size: 16pt;
 }
 
-a {
-    text-align: center;
-}
+
 
 .new-post-box {
     border: solid;
@@ -232,6 +230,7 @@ textarea {
     background-color: white;
     border-radius: 10px;
     padding: 25px 25px 25px 25px;
+    box-shadow: 0 0 5px grey;
 }
 
 .todays-post-header {
@@ -257,4 +256,72 @@ textarea {
     font-size: 15px;
     color: #8AA9DF;
     padding-top: 20px;
+}
+
+.previous-discussions {
+    width: 100%;
+    height: auto;
+    padding-top: 30px;
+    background-color: #fcfdff;
+}
+
+.gap {
+    height: 50px;
+}
+
+.headline {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.post-description {
+    padding-top: 10px;
+    padding-bottom: 0;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.subheader {
+    padding-top: 0;
+    text-align: center;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.article {
+    text-align: center;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.articles {
+    width: 100%;
+    height: auto;
+    background-color: #fcfdff;
+    padding-bottom: 20px;
+}
+
+.read {
+    font-weight: bold;
+}
+
+.back {
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+a {
+    text-align: center;
+    color: inherit;
 }
