@@ -193,3 +193,68 @@ textarea {
     font-size: 14pt;
 }
 
+.welcome {
+    width: 100%;
+    height: auto;
+    background-color: #8dacdd;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.welcome-text {
+    color: white;
+    width:70%;
+    font-size: 25px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    margin:0 auto;
+    margin-bottom: 15px;
+    border-radius: 150px;
+}
+
+.todays-post {
+    width: 100%;
+    height: 400px;
+    background-color: #f2f2f2;
+    padding-top: 30px;
+}
+
+.todays-card {
+    width: 700px;
+    height: auto;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px 25px 25px 25px;
+}
+
+.todays-post-header {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 20px;
+    font-weight: bolder;
+}
+
+.todays-post-title {
+    text-align: center;
+    font-size: 30px;
+}
+
+.todays-post-description {
+    text-align: center;
+    font-size: 20px;
+    padding-top: 10px;
+}
+
+.join {
+    text-align: center;
+    font-size: 15px;
+    color: #8AA9DF;
+    padding-top: 20px;
+}

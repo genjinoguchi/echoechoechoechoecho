@@ -81,7 +81,7 @@ Template.post.helpers({
 
 Template.post.events({
     'click .submit-reply-button'(event, instance) {
-        var id = "not jenji"
+        var id = "you"
         var post_id = parseInt(FlowRouter.current().params._pid);
         var comment_content = $(".post-input").val();
         Meteor.call("add_comment", id, post_id, comment_content, function(err, result) {

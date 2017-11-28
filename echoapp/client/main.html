@@ -4,18 +4,69 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
-<!--
-<body>
-  {{> new_post}}
-</body>
--->
 
-<template name="homer_simpson">
+<body>
+  {{> new}}
+</body>
+
+<template name="new">
+  <div class="welcome">
+    <div class="logo"></div>
+    <div class="welcome-text">
+      Welcome to _____! This is a place where we have a weekly discussion on current events. Every Friday at ____, we post a link to a post where you can read up on a current event, and have discussion with other people on your thoughts and opinions about what you read. We pull articles from <a href="https://www.allsides.com/unbiased-balanced-news">AllSides</a> and give prompts to guide conversations in the comments section.
+    </div>
+  </div>
+  <div class="todays-post">
+    <div class="todays-post-header">This week's discussion</div>
+    <div class="todays-card">
+      <div class="todays-post-title">Conyers steps down, Pelosi criticized</div>
+      <div class="todays-post-description">In response to sexual misconduct accusations, Rep John Conyers, D-Michigan, stepped down from the House Judiciary Committee where he has served as the ranking Democrat. House Minority Leader Nancy Pelosi, D-California, has been criticized for defending him after strongly</div>
+      <div class="join">join the discussion! >></div>
+    </div>
+
+  </div>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <template name="homer_simpson">
   <div class="container-fluid">
     <div class="row">
       {{> new_card}}
       {{#each posts}}
-        {{> card}}
+      {{> card}}
       {{/each}}
     </div>
   </div>
@@ -25,12 +76,12 @@
   <div class="col-lg-3 col-md-6 col-sm-12">
     <div class="content-card">
       <div class="card-title">
-          {{this.title}}
-      </div>
-      <div class="card-description">
+        {{this.title}}
+      </div> -->
+<!--       <div class="card-description">
         {{this.description}}
-      </div>
-      <div class="break"></div>
+      </div> -->
+      <!-- <div class="break"></div>
       <a href="/post/{{this.pid}}" class="read-more">
         read more >
       </a>
@@ -51,36 +102,36 @@
 <template name="post">
   <div class="blue-banner">
     <div class="row">
-        <div class="col-md-6">
-            <p class="post-title">
-              {{post.title}}
-            </p>
-        </div>
-        <div class="col-md-6 col-md-offset-3">
-          <p class="post-description">
-                {{post.description}}
-            </p>
-        </div>
+      <div class="col-md-6">
+        <p class="post-title">
+          {{post.title}}
+        </p>
+      </div>
+      <div class="col-md-6 col-md-offset-3">
+        <p class="post-description">
+          {{post.description}}
+        </p>
+      </div>
     </div>
   </div>
   <div class="break"></div>
-    {{#each comments}}
-        {{> comment}}
-    {{/each}}
-    {{> reply}}
-    <div class="break"></div>
+  {{#each comments}}
+  {{> comment}}
+  {{/each}}
+  {{> reply}}
+  <div class="break"></div>
 </template>
 
 <template name="comment">
-    <div class="col-md-8 col-centered">
-      <div class="comment-box">
-        <div class="username">
-            {{this.nickname}}
-        </div>
-        <div class="comment">
-            {{this.content}}
-        </div>
+  <div class="col-md-8 col-centered">
+    <div class="comment-box">
+      <div class="username">
+        {{this.nickname}}
       </div>
+      <div class="comment">
+        {{this.content}}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -89,8 +140,8 @@
   <div class="col-md-8 col-centered">
     <div class="comment-box col-centered">
       <div class="break"></div>
-        <input class="post-input" placeholder="write a response" type="text" name="reply-text">
-        <button class="submit-reply-button">submit</button>
+      <input class="post-input" placeholder="write a response" type="text" name="reply-text">
+      <button class="submit-reply-button">submit</button>
     </div>
   </div>
   <div class="break"></div>
@@ -99,12 +150,13 @@
 
 
 <template name="new_post"> <div class="all-blue">
-      <div class="new-post-title">
-        What is your opinion?
-      </div>
-        <textarea class="new_post" id="username-id" name="username" placeholder="Give us a nickname"></textarea>
-        <textarea id="new-title-id" name="new-title" placeholder="in one sentence, describe your opinion"></textarea>
-        <textarea id="description-id" name="description" placeholder="give us some more details on why you think that"></textarea>
-        <button class="new-post-submit" type="submit">submit</button>
-    </div>
+  <div class="new-post-title">
+    What is your opinion?
+  </div>
+  <textarea class="new_post" id="username-id" name="username" placeholder="What is your name? (a nickname works too!)"></textarea>
+  <textarea id="new-title-id" name="new-title" placeholder="in one sentence, describe your opinion"></textarea>
+  <textarea id="description-id" name="description" placeholder="give us some more details on why you think that"></textarea>
+  <button class="new-post-submit" type="submit">submit</button>
+</div>
 </template>
+ -->
