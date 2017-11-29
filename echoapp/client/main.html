@@ -9,6 +9,27 @@
   <!--{{> post}}-->
 </body>
 
+ <template name="new_post">
+   <div class="all-blue">
+        <div class="new-post-title">
+          What is your opinion?
+        </div>
+        <form onsubmit="">
+          <textarea class="new_post" id="headline-id" name="headline" placeholder="Headline"></textarea>
+          <textarea id="description-id" name="description" placeholder="Short description of news story"></textarea>
+          <textarea id="a1-title-id" name="a1-title" placeholder="Title of Article 1"></textarea>
+          <textarea id="a1-url-id" name="a1-url" placeholder="Link to Article 1"></textarea>
+          <textarea id="a2-title-id" name="a2-title" placeholder="Title of Article 2"></textarea>
+          <textarea id="a2-url-id" name="a2-url" placeholder="Link to Article 2"></textarea>
+          <textarea id="a3-title-id" name="a3-title" placeholder="Title of Article 3"></textarea>
+          <textarea id="a3-url-id" name="a3-url" placeholder="Link to Article 3"></textarea>
+          <textarea id="disc-q-id" name="disc-question" placeholder="Relevant discussion question"></textarea>
+          <button class="new-post-submit" type="submit">submit</button>
+       </form>
+      </div>
+  </template>
+
+
 <template name="new_home">
   <div class="welcome">
     <div class="logo"></div>
@@ -112,6 +133,7 @@
   <!-- SORRY I HAVEN'T FINISHED THIS YET -->
   </div>
 </template>
+
 
 
 

@@ -28,7 +28,7 @@ Meteor.startup(() => {
 
 // Server Methods
 Meteor.methods({
-    create_post: function (headline, description, a1_title, a1_url, a2_title, a2_url, a3_title, a3_url, discussion_question, date) {
+    create_post: function (headline, description, a1_title, a1_url, a2_title, a2_url, a3_title, a3_url, discussion_question) {
         // Takes in username and post_content, returns the id of the new post.
         if (PostData.find({ type : "global ids" }).count() == 0) {
             PostData.insert({ type: "global ids", global_pid : 0, global_cid : 0 });
@@ -57,7 +57,6 @@ Meteor.methods({
             a3_title : a3_title,
             a3_url : a3_url,
             question : discussion_question,
-            date : date
         });
 
         return temp;
@@ -75,7 +74,7 @@ Meteor.methods({
     },
     get_old_posts: function() {
         //returns all old/archived posts
-        return PostData.find({ type : "post", post_type : "previous" }, { sort : { date : -1 }}).fetch();
+        return PostData.find({ type : "post", post_type : "previous" }, { sort : { pid : -1 }}).fetch();
     },
     add_comment: function(user, post_id, comment_content) {
         // Takes in username, post id, and comment content, and returns the comment id.
