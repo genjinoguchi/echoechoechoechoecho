@@ -77,7 +77,7 @@ Meteor.methods({
         //returns all old/archived posts
         return PostData.find({ type : "post", post_type : "previous" }, { sort : { pid : -1 }}).fetch();
     },
-    add_comment: function(user, post_id, prompt_id, comment_content) {
+    add_comment: function(user, post_id, prompt_id, comment_content, time) {
         // Takes in username, post id, and comment content, and returns the comment id.
         var temp = PostData.find({ type: "global ids" }).fetch()[0].global_cid;
 
@@ -89,7 +89,8 @@ Meteor.methods({
             prid : prompt_id,
             cid : temp,
             type : "comment",
-            content : comment_content
+            content : comment_content,
+            time : time
         });
 
         return temp;
