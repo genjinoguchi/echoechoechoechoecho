@@ -80,31 +80,75 @@ Template.post.onRendered(function() {
 })
 
 Template.post.helpers({
-    userID() {
-        return "notjenji"
-    },
     post() {
         return Session.get("post")
     },
-    comments() {
-        return Session.get("comments")
+    comments1() {
+        return Session.get("comments1")
+    },
+    comments2() {
+        return Session.get("comments2")
+    },
+    comments3() {
+        return Session.get("comments3")
     }
 })
 
 Template.post.events({
-    'click .submit-reply-button'(event, instance) {
-        var id = "you"
+    'click #reply-button1'(event, instance) {
         var post_id = parseInt(FlowRouter.current().params._pid);
-        var comment_content = $(".post-input").val();
-        Meteor.call("add_comment", id, post_id, comment_content, function(err, result) {
+        var user_id = $("#username-input1").val();
+        user_id = user_id ? user_id : "Anonymous";
+        var comment_content = $("#post-input1").val();
+        var prompt_id = 1;
+        console.log(post_id + user_id + comment_content)
+        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
             //FlowRouter.go("/")
             var post_id = parseInt(FlowRouter.current().params._pid);
-            Meteor.call("get_post_comments", post_id, function(err, result) {
+            Meteor.call("get_post_comments", post_id, 1, function(err, result) {
                 if (err) console.warn(err);
                 console.log(result);
-                Session.set("comments", result);
+                Session.set("comments1", result);
+            })
+        });
+    },
+    'click #reply-button2'(event, instance) {
+        var post_id = parseInt(FlowRouter.current().params._pid);
+        var user_id = $("#username-input2").val();
+        user_id = user_id ? user_id : "Anonymous";
+        var comment_content = $("#post-input2").val();
+        var prompt_id = 2;
+        console.log(post_id + user_id + comment_content)
+        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, function(err, result) {
+            if (err) console.warn(err);
+            // FlowRouter.go("/post/" + result); TODO uncomment this
+            //FlowRouter.go("/")
+            var post_id = parseInt(FlowRouter.current().params._pid);
+            Meteor.call("get_post_comments", post_id, 2, function(err, result) {
+                if (err) console.warn(err);
+                console.log(result);
+                Session.set("comments2", result);
+            })
+        });
+    },
+    'click #reply-button3'(event, instance) {
+        var post_id = parseInt(FlowRouter.current().params._pid);
+        var user_id = $("#username-input3").val();
+        user_id = user_id ? user_id : "Anonymous";
+        var comment_content = $("#post-input3").val();
+        var prompt_id = 3;
+        console.log(post_id + user_id + comment_content)
+        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, function(err, result) {
+            if (err) console.warn(err);
+            // FlowRouter.go("/post/" + result); TODO uncomment this
+            //FlowRouter.go("/")
+            var post_id = parseInt(FlowRouter.current().params._pid);
+            Meteor.call("get_post_comments", post_id, 3, function(err, result) {
+                if (err) console.warn(err);
+                console.log(result);
+                Session.set("comments3", result);
             })
         });
     }
