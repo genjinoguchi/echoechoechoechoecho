@@ -112,10 +112,12 @@
       </div>
       <div class="comments-header">
         <div class="gap"></div>
-        {{> comment}}
+        {{#each comments1}}
+            {{> comment}}
+        {{/each}}
         <div class="gap"></div>
         <input type="text" id="username-input1" placeholder="username">
-        <input type="textarea" id="username-input1" placeholder="comment">
+        <input type="textarea" id="comment-input1" placeholder="comment">
         <button name="reply-button-1" id="reply-button-1">reply</button>
       </div>
     </div>
@@ -139,8 +141,8 @@
 
 <template name="comment">
   <div class="comment-border">
-    <div class="username">username</div>
-    <div class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </div>
+    <div class="username">{{this.nickname}}</div>
+    <div class="comment">{{this.content}}</div>
     <div class="timestamp">12:30pm</div>
   </div>
 </template>
