@@ -102,21 +102,21 @@ body {
     margin: 0 auto;
 }
 
-.username {
+/*.username {
     font-size: 16pt;
     position: relative;
     font-weight: bold;
-}
+}*/
 
 .time {
     font-weight: lighter;
     font-size: 12pt;
 }
 
-.comment {
+/*.comment {
     margin-top: 10px;
     color: #297FCA;
-}
+}*/
 
 .all-blue {
     width: 100%;
@@ -349,6 +349,20 @@ a {
     width: 50%;
     height: 150px;
     border-radius: 10px;
-    background-color: black;
+    /*background-color: black;*/
     margin: 0 auto;
+    border:solid;
+    border-width: 2px;
+    border-color: grey;
+}
+
+.login-border {
+    width: 70%;
+    height: 300px;
+    /*background-color: black;*/
+    margin: 0 auto;
+    border-radius: 10px;
+    border-width: 2px;
+    border: solid;
+    border-color: grey;
 }
