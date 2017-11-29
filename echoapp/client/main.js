@@ -5,20 +5,24 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import './main.html';
 
-Template.homer_simpson.onRendered(function() {
+Template.new_home.onRendered(function() {
     console.log("Rendered!")
 })
 
-Template.homer_simpson.helpers({
-    userID() {
-        return "notjenji"
-    },
-    posts() {
-        Meteor.call("get_all_posts", function (err, result) {
+Template.new_home.helpers({
+    current_post() {
+        Meteor.call("get_current_post", function(err, result) {
             if (err) console.warn(err)
-            Session.set("posts", result)
+            Session.set("current_post", result)
+        })
+        return Session.get("current_post")
+    },
+    old_posts() {
+        Meteor.call("get_old_posts", function (err, result) {
+            if (err) console.warn(err)
+            Session.set("old_posts", result)
         });
-        return Session.get("posts")
+        return Session.get("old_posts")
     }
 })
 
@@ -29,7 +33,7 @@ Template.new_post.onRendered(function() {
 
 Template.new_post.helpers({
     userID() {
-        return "notjenji"
+        return "dollythesheep"
     }
 })
 

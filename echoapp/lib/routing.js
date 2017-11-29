@@ -3,7 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 FlowRouter.route("/", {
     name: "Home",
     action(params, queryParams) {
-        BlazeLayout.render("homer_simpson");
+        BlazeLayout.render("new_home");
     }
 })
 

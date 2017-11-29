@@ -6,7 +6,7 @@
 
 
 <body>
-  {{> post}}
+  <!--{{> post}}-->
 </body>
 
 <template name="new_home">
@@ -19,28 +19,36 @@
   <div class="todays-post">
     <div class="todays-post-header">This week's discussion</div>
     <div class="todays-card">
-      <div class="todays-post-title">Conyers steps down, Pelosi criticized</div>
-      <div class="todays-post-description">In response to sexual misconduct accusations, Rep John Conyers, D-Michigan, stepped down from the House Judiciary Committee where he has served as the ranking Democrat. House Minority Leader Nancy Pelosi, D-California, has been criticized for defending him after strongly</div>
-      <div class="join"> <a href="">join the discussion!>> </a></div>
+      <div class="todays-post-title">{{this.current_post.title}}</div>
+      <div class="todays-post-description">{{this.current_post.description}}</div>
+      <div class="join"> <a href="/post/{{this.pid}}">join the discussion!>> </a></div>
     </div>
   </div>
 
   <div class="previous-discussions">
     <div class="todays-post-header">Previous Discussions</div>
-
-    <div class="todays-card">
-      <div class="todays-post-title">Cards Against Humanity Sets Plan to Delay Border Wall</div>
-      <div class="todays-post-description">The company behind the popular game Cards Against Humanity has purchased land on the U.S.-Mexico border and hired an eminent domain law firm to make the construction of Trump's border wall "as time-consuming and expensive as possible."</div>
-      <div class="join"> <a href="">view previous discussion>></a> </div>
-    </div>
+        {{#each old_posts}}
+            {{> old_post_box}}
+        {{/each}}
     <div class="gap"></div>
+    <!--
     <div class="todays-card">
       <div class="todays-post-title">Donald Trump Jr. and WikiLeaks Correspondence</div>
       <div class="todays-post-description">One month before the presidential election, President Trump tweeted about John Podesta's hacked emails 15 minutes after WikiLeaks asked Donald Trump Jr. to do so in a secret exchange.s</div>
       <div class="join"><a href="">view previous discussion>></a> </div>
     </div>
+    -->
     <div class="gap"></div>
   </div>
+
+</template>
+
+<template name="old_post_box">
+    <div class="todays-card">
+      <div class="todays-post-title">{{this.title}}</div>
+      <div class="todays-post-description">{{this.description}}</div>
+      <div class="join"> <a href="/posts/{{this.pid}}">view previous discussion>></a> </div>
+    </div>
 </template>
 
 
