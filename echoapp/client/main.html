@@ -9,25 +9,25 @@
   {{> post}}
 </body>
 
- <template name="new_post">
-   <div class="all-blue">
-        <div class="new-post-title">
-          What is your opinion?
-        </div>
-        <form onsubmit="">
-          <textarea class="new_post" id="headline-id" name="headline" placeholder="Headline"></textarea>
-          <textarea id="description-id" name="description" placeholder="Short description of news story"></textarea>
-          <textarea id="a1-title-id" name="a1-title" placeholder="Title of Article 1"></textarea>
-          <textarea id="a1-url-id" name="a1-url" placeholder="Link to Article 1"></textarea>
-          <textarea id="a2-title-id" name="a2-title" placeholder="Title of Article 2"></textarea>
-          <textarea id="a2-url-id" name="a2-url" placeholder="Link to Article 2"></textarea>
-          <textarea id="a3-title-id" name="a3-title" placeholder="Title of Article 3"></textarea>
-          <textarea id="a3-url-id" name="a3-url" placeholder="Link to Article 3"></textarea>
-          <textarea id="disc-q-id" name="disc-question" placeholder="Relevant discussion question"></textarea>
-          <button class="new-post-submit" type="submit">submit</button>
-       </form>
-      </div>
-  </template>
+<template name="new_post">
+ <div class="all-blue">
+  <div class="new-post-title">
+    What is your opinion?
+  </div>
+  <form onsubmit="">
+    <textarea class="new_post" id="headline-id" name="headline" placeholder="Headline"></textarea>
+    <textarea id="description-id" name="description" placeholder="Short description of news story"></textarea>
+    <textarea id="a1-title-id" name="a1-title" placeholder="Title of Article 1"></textarea>
+    <textarea id="a1-url-id" name="a1-url" placeholder="Link to Article 1"></textarea>
+    <textarea id="a2-title-id" name="a2-title" placeholder="Title of Article 2"></textarea>
+    <textarea id="a2-url-id" name="a2-url" placeholder="Link to Article 2"></textarea>
+    <textarea id="a3-title-id" name="a3-title" placeholder="Title of Article 3"></textarea>
+    <textarea id="a3-url-id" name="a3-url" placeholder="Link to Article 3"></textarea>
+    <textarea id="disc-q-id" name="disc-question" placeholder="Relevant discussion question"></textarea>
+    <button class="new-post-submit" type="submit">submit</button>
+  </form>
+</div>
+</template>
 
 
 <template name="new_home">
@@ -48,28 +48,28 @@
 
   <div class="previous-discussions">
     <div class="todays-post-header">Previous Discussions</div>
-        {{#each old_posts}}
-            {{> old_post_box}}
-            <div class="gap"></div>
-        {{/each}}
+    {{#each old_posts}}
+    {{> old_post_box}}
+    <div class="gap"></div>
+    {{/each}}
     <!--
     <div class="todays-card">
       <div class="todays-post-title">Donald Trump Jr. and WikiLeaks Correspondence</div>
       <div class="todays-post-description">One month before the presidential election, President Trump tweeted about John Podesta's hacked emails 15 minutes after WikiLeaks asked Donald Trump Jr. to do so in a secret exchange.s</div>
       <div class="join"><a href="">view previous discussion>></a> </div>
     </div>
-    -->
-    <div class="gap"></div>
-  </div>
+  -->
+  <div class="gap"></div>
+</div>
 
 </template>
 
 <template name="old_post_box">
-    <div class="todays-card">
-      <div class="todays-post-title">{{this.headline}}</div>
-      <div class="todays-post-description">{{this.description}}</div>
-      <div class="join"> <a href="/posts/{{this.pid}}">view previous discussion>></a> </div>
-    </div>
+  <div class="todays-card">
+    <div class="todays-post-title">{{this.headline}}</div>
+    <div class="todays-post-description">{{this.description}}</div>
+    <div class="join"> <a href="/posts/{{this.pid}}">view previous discussion>></a> </div>
+  </div>
 </template>
 
 
@@ -108,25 +108,40 @@
     <div class="todays-post-header">Discussion</div>
     <div class="prompt-container">
       <div class="prompt-header">
-          Do you think Conyers response to step down was the proper one in light of the situation?
+        Do you think Conyers response to step down was the proper one in light of the situation?
       </div>
       <div class="comments-header">
         <div class="gap"></div>
-          {{> comment}}
-          <!-- GENJI GEMMA THIS IS WHERE THE REPLY FUNCTION SHOULD HAPPEN -->
-          <input type="text" id="username-input" placeholder="username">
-          <input type="textarea" id="username-input" placeholder="comment">
-          <button name="reply-button" id="reply-button">reply</button>
+        {{> comment}}
+        <div class="gap"></div>
+        <input type="text" id="username-input1" placeholder="username">
+        <input type="textarea" id="username-input1" placeholder="comment">
+        <button name="reply-button-1" id="reply-button-1">reply</button>
       </div>
+    </div>
+  </div>
+
+  <div class="prompt-container">
+    <div class="prompt-header">
+      Do you think Conyers response to step down was the proper one in light of the situation?
+    </div>
+    <div class="comments-header">
+      <div class="gap"></div>
+      {{> comment}}
+      <div class="gap"></div>
+      <input type="text" name="username-input" placeholder="username">
+      <input type="textarea" name="username-input" placeholder="comment">
+      <button name="reply-button-2" id="reply-button-2">reply</button>
     </div>
   </div>
 </template>
 
 
 <template name="comment">
-  <div class="comment">
+  <div class="comment-border">
     <div class="username">username</div>
-    <div class="comment"></div>
+    <div class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </div>
+    <div class="timestamp">12:30pm</div>
   </div>
 </template>
 
@@ -255,4 +270,4 @@
   <button class="new-post-submit" type="submit">submit</button>
 </div>
 </template>
- -->
+-->

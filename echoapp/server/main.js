@@ -11,14 +11,15 @@ Meteor.startup(() => {
     //var pid = Meteor.call('create_post', 'headline', 'adfsadf', "a1", "a1", "a2", "a2", "a3", "a3", "q");
     // console.log(pid);
     //
-    // var pid2 = Meteor.call('create_post', 'jenga', 'bleh bleh bleh bleh');
+    //var pid2 = Meteor.call('create_post', 'jenga', 'bleh bleh bleh bleh', "a1", "a1", "a2", "a2", "a3", "a3", "q");
     // console.log(pid2);
     //
-    // console.log(Meteor.call('add_comment', 'dolly', 0, 'i disagree'));
-    // console.log(Meteor.call('add_comment', 'takara', 0, 'i agree'));
+    //console.log(Meteor.call('add_comment', 'dolly', 0, 'i disagree'));
+    //console.log(Meteor.call('add_comment', 'takara', 0, 'i agree'));
+    //console.log(Meteor.call('add_comment', 'jenji', 1, 'no'));
     //
-    // console.log("======= ALL COMMENTS FOR GENJI =======");
-    // console.log(Meteor.call('get_post_comments', 0));
+    console.log("======= ALL COMMENTS =======");
+    console.log(Meteor.call('get_post_comments', 0));
     // console.log("======= TAKARA'S COMMENT =======");
     // console.log(Meteor.call('get_comment', 0, 1));
     //
@@ -76,7 +77,7 @@ Meteor.methods({
         //returns all old/archived posts
         return PostData.find({ type : "post", post_type : "previous" }, { sort : { pid : -1 }}).fetch();
     },
-    add_comment: function(user, post_id, comment_content) {
+    add_comment: function(user, post_id, prompt_id, comment_content) {
         // Takes in username, post id, and comment content, and returns the comment id.
         var temp = PostData.find({ type: "global ids" }).fetch()[0].global_cid;
 
@@ -85,6 +86,7 @@ Meteor.methods({
         PostData.insert({
             nickname : user,
             pid : post_id,
+            prid : prompt_id,
             cid : temp,
             type : "comment",
             content : comment_content
@@ -92,9 +94,9 @@ Meteor.methods({
 
         return temp;
     },
-    get_post_comments: function(post_id) {
+    get_post_comments: function(post_id, prompt_id) {
         // takes in post id, and returns all the comments for the post.
-        return PostData.find({ pid : post_id, type : "comment" }).fetch();
+        return PostData.find({ pid : post_id, prid : prompt_id, type : "comment" }).fetch();
     },
     get_comment: function(post_id, comment_id) {
         // takes in post id and comment id, and returns the comment content.
