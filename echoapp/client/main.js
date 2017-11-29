@@ -94,15 +94,43 @@ Template.post.helpers({
         return Session.get("post")
     },
     comments1() {
-        return Session.get("comments1")
+        var result = Session.get("comments1")
+        if (result) {
+            for (var i=0; i<result.length; i++) {
+                var element = result[i]
+                element.format_date = (new Date(element.time)).toDateString()
+            }
+            console.log("result")
+            console.log(result)
+            return result
+        }
     },
     comments2() {
-        return Session.get("comments2")
+        var result = Session.get("comments2")
+        if (result) {
+            for (var i=0; i<result.length; i++) {
+                var element = result[i]
+                element.format_date = (new Date(element.time)).toDateString()
+            }
+            return result
+        }
     },
     comments3() {
-        return Session.get("comments3")
+        var result = Session.get("comments3")
+        if (result) {
+            for (var i=0; i<result.length; i++) {
+                var element = result[i]
+                element.format_date = (new Date(element.time)).toDateString()
+            }
+            return result
+        }
     }
 })
+
+function format_date(timestamp) {
+    var date = new Date(timestamp)
+    return date.getDay() + " " + date.getMonth() + " " + date.getDate() + ", " + (date.getYear() + 1900);
+}
 
 Template.post.events({
     'click #reply-button-1'(event, instance) {
@@ -111,9 +139,10 @@ Template.post.events({
         user_id = user_id ? user_id : "Anonymous";
         var comment_content = $("#comment-input1").val();
         var prompt_id = 1;
+        var timestamp = Date.now();
         console.log(comment_content)
         console.log(post_id + user_id + comment_content)
-        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, function(err, result) {
+        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, timestamp, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
             //FlowRouter.go("/")
@@ -121,6 +150,9 @@ Template.post.events({
             Meteor.call("get_post_comments", post_id, 1, function(err, result) {
                 if (err) console.warn(err);
                 console.log(result);
+                result.forEach(function(element) {
+                    element.format_date = format_date(element.time)
+                })
                 Session.set("comments1", result);
             })
         });
@@ -133,8 +165,9 @@ Template.post.events({
         user_id = user_id ? user_id : "Anonymous";
         var comment_content = $("#comment-input2").val();
         var prompt_id = 2;
+        var timestamp = Date.now();
         console.log(post_id + user_id + comment_content)
-        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, function(err, result) {
+        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, timestamp, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
             //FlowRouter.go("/")
@@ -142,9 +175,14 @@ Template.post.events({
             Meteor.call("get_post_comments", post_id, 2, function(err, result) {
                 if (err) console.warn(err);
                 console.log(result);
+                result.forEach(function(element) {
+                    element.format_date = format_date(element.time)
+                })
                 Session.set("comments2", result);
             })
         });
+        $("#username-input2").val("");
+        $("#comment-input2").val("");
     },
     'click #reply-button3'(event, instance) {
         var post_id = parseInt(FlowRouter.current().params._pid);
@@ -152,8 +190,9 @@ Template.post.events({
         user_id = user_id ? user_id : "Anonymous";
         var comment_content = $("#comment-input3").val();
         var prompt_id = 3;
+        var timestamp = Date.now();
         console.log(post_id + user_id + comment_content)
-        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, function(err, result) {
+        Meteor.call("add_comment", user_id, post_id, prompt_id, comment_content, timestamp, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
             //FlowRouter.go("/")
@@ -161,9 +200,14 @@ Template.post.events({
             Meteor.call("get_post_comments", post_id, 3, function(err, result) {
                 if (err) console.warn(err);
                 console.log(result);
+                result.forEach(function(element) {
+                    element.format_date = format_date(element.time)
+                })
                 Session.set("comments3", result);
             })
         });
+        $("#username-input3").val("");
+        $("#comment-input3").val("");
     }
 })
 

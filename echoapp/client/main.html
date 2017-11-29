@@ -6,7 +6,7 @@
 
 
 <body>
-  {{> post}}
+  <!--{{> post}}-->
 </body>
 
 <template name="new_post">
@@ -132,7 +132,7 @@
   <div class="comment-border">
     <div class="username">{{this.nickname}}</div>
     <div class="comment">{{this.content}}</div>
-    <div class="timestamp">12:30pm</div>
+    <div class="timestamp">{{this.format_date}}</div>
   </div>
 </template>
 
