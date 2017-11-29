@@ -28,7 +28,7 @@ Meteor.startup(() => {
 
 // Server Methods
 Meteor.methods({
-    create_post: function (user, post_title, post_description, post_content) {
+    create_post: function (headline, description, a1_title, a1_url, a2_title, a2_url, a3_title, a3_url, discussion_question, date) {
         // Takes in username and post_content, returns the id of the new post.
         if (PostData.find({ type : "global ids" }).count() == 0) {
             PostData.insert({ type: "global ids", global_pid : 0, global_cid : 0 });
@@ -36,25 +36,46 @@ Meteor.methods({
 
         var temp = PostData.find({ type: "global ids" }).fetch()[0].global_pid;
 
+        //increments the global post id
         PostData.update({ type : "global ids" }, { $inc : { global_pid : 1 } });
 
+        if (PostData.find({ type : "post", post_type : "current" }).count() > 0) {
+            //archives the current post
+            PostData.update({ type : "post", post_type : "current"}, { $set : { post_type : "previous" }});
+        }
+
         PostData.insert({
-            nickname : user,
+            headline : headline,
             pid : temp,
             type : "post",
-            title : post_title,
-            description : post_description,
-            content : post_content
+            post_type : "current",
+            description : description,
+            a1_title : a1_title,
+            a1_url : a1_url,
+            a2_title : a2_title,
+            a2_url : a2_url,
+            a3_title : a3_title,
+            a3_url : a3_url,
+            question : discussion_question,
+            date : date
         });
 
         return temp;
     },
-    get_all_posts: function() {
-        return PostData.find({ type: "post" }).fetch();
+    // get_all_posts: function() {
+    //     return PostData.find({ type: "post" }).fetch();
+    // },
+    // get_post: function(post_id) {
+    //     // Takes in post id and returns the post content.
+    //     return PostData.find({ pid : post_id, type : "post" }).fetch()[0];
+    // },
+    get_current_post: function() {
+        //returns the current post
+        return PostData.find({ type : "post", post_type : "current" }).fetch()[0];
     },
-    get_post: function(post_id) {
-        // Takes in post id and returns the post content.
-        return PostData.find({ pid : post_id, type : "post" }).fetch()[0];
+    get_old_posts: function() {
+        //returns all old/archived posts
+        return PostData.find({ type : "post", post_type : "previous" }, { sort : { date : -1 }}).fetch();
     },
     add_comment: function(user, post_id, comment_content) {
         // Takes in username, post id, and comment content, and returns the comment id.
