@@ -305,7 +305,7 @@ textarea {
 .articles {
     width: 100%;
     height: auto;
-    background-color: #fcfdff;
+    background-color: #eaeaea;
     padding-bottom: 20px;
 }
 
@@ -324,4 +324,31 @@ textarea {
 a {
     text-align: center;
     color: inherit;
+    text-decoration: none;
+}
+
+.prompt-container {
+    margin-top: 20px;
+    width: 90%;
+    height: auto;
+    border: solid;
+    border-color: #eaeaea;
+    border-width: 2px;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 20px 20px 20px 20px;
+}
+
+.prompt-header {
+    text-align: center;
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.comment {
+    width: 50%;
+    height: 150px;
+    border-radius: 10px;
+    background-color: black;
+    margin: 0 auto;
 }
