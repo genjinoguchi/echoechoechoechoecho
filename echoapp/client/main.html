@@ -106,6 +106,8 @@
   <div class="discussion">
     <div class="gap"></div>
     <div class="todays-post-header">Discussion</div>
+
+
     <div class="prompt-container">
       <div class="prompt-header">
         Do you think Conyers response to step down was the proper one in light of the situation?
@@ -114,13 +116,49 @@
         <div class="gap"></div>
         {{> comment}}
         <div class="gap"></div>
-        <input type="text" id="username-input1" placeholder="username">
-        <input type="textarea" id="username-input1" placeholder="comment">
-        <button name="reply-button-1" id="reply-button-1">reply</button>
 
-
+        <div class="comment-section">
+          <input type="text" id="username-input1" placeholder="username" class="input-lol comment-text">
+          <textarea type="text" id="username-input1" placeholder="comments" class="input-lol comment-text comment-text-area"> </textarea>
+          <button name="reply-button-1" id="reply-button-1">reply</button>
+        </div>
       </div>
     </div>
+
+    <div class="prompt-container">
+      <div class="prompt-header">
+        What did you think about Nancy Pelosi's response?
+      </div>
+      <div class="comments-header">
+        <div class="gap"></div>
+        {{> comment}}
+        <div class="gap"></div>
+
+        <div class="comment-section">
+          <input type="text" id="username-input1" placeholder="username" class="input-lol comment-text">
+          <textarea type="text" id="username-input1" placeholder="comments" class="input-lol comment-text comment-text-area"> </textarea>
+          <button name="reply-button-1" id="reply-button-1">reply</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prompt-container">
+      <div class="prompt-header">
+        In light of the many recent sexual harassment allegations towards public figures, how should we legitimize and confirm those claims, and how do we balance beleif in skepticism in those moment?
+      </div>
+      <div class="comments-header">
+        <div class="gap"></div>
+        {{> comment}}
+        <div class="gap"></div>
+
+        <div class="comment-section">
+          <input type="text" id="username-input1" placeholder="username" class="input-lol comment-text">
+          <textarea type="text" id="username-input1" placeholder="comments" class="input-lol comment-text comment-text-area"> </textarea>
+          <button name="reply-button-1" id="reply-button-1">reply</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </template>
@@ -128,7 +166,7 @@
 
 <template name="comment">
   <div class="comment-border">
-    <div class="username">username</div>
+    <div class="username">name</div>
     <div class="comment">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco </div>
     <div class="timestamp">12:30pm</div>
   </div>
