@@ -6,7 +6,7 @@
 
 
 <body>
-  <!--{{> post}}-->
+  {{> post}}
 </body>
 
  <template name="new_post">
@@ -73,13 +73,6 @@
 </template>
 
 
-
-
-
-
-
-
-
 <template name="post">
   <div class="welcome">
     <div class="back"> <a href="">BACK</a> </div>
@@ -121,7 +114,9 @@
         <div class="gap"></div>
           {{> comment}}
           <!-- GENJI GEMMA THIS IS WHERE THE REPLY FUNCTION SHOULD HAPPEN -->
-          <input type="text" name="reply-text"> <button type="submit">reply</button>
+          <input type="text" name="username-input" placeholder="username">
+          <input type="textarea" name="username-input" placeholder="comment">
+          <button name="reply-button" id="reply-button">reply</button>
       </div>
     </div>
   </div>
@@ -130,7 +125,8 @@
 
 <template name="comment">
   <div class="comment">
-  <!-- SORRY I HAVEN'T FINISHED THIS YET -->
+    <div class="username">username</div>
+    <div class="comment"></div>
   </div>
 </template>
 
