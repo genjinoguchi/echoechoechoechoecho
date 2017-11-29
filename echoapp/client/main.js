@@ -35,11 +35,17 @@ Template.new_post.helpers({
 
 Template.new_post.events({
     'click .new-post-submit'(event, instance) {
-        var title = $("#new-title-id").val();
-        var id = $("#username-id").val();
-        var post_content = $("#description-id").val();
+        var headline = $("#headline-id").val();
+        var description = $("#description-id").val();
+        var a1_title = $("#a1-title-id").val();
+        var a1_url = $("#a1-url-id").val();
+        var a2_title = $("#a2-title-id").val();
+        var a2_url = $("#a2-url-id").val();
+        var a3_title = $("#a3-title-id").val();
+        var a3_url = $("#a3-url-id").val();
+        var question = $("#disc-q-id").val();
         console.log(title.toString() + id.toString() + post_content.toString());
-        Meteor.call("create_post", id, title, post_content, function(err, result) {
+        Meteor.call("create_post", headline, description, a1_title, a1_url, a2_title, a2_url, a3_title, a3_url, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
             FlowRouter.go("/")
