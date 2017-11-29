@@ -8,7 +8,7 @@ Meteor.startup(() => {
     // note: meteor reset to clear out the database (otherwise things will persist)
 
     // console.log("HELLO");
-    // var pid = Meteor.call('create_post', 'jenji', 'blah blah blah blah');
+    //var pid = Meteor.call('create_post', 'headline', 'adfsadf', "a1", "a1", "a2", "a2", "a3", "a3", "q");
     // console.log(pid);
     //
     // var pid2 = Meteor.call('create_post', 'jenga', 'bleh bleh bleh bleh');
@@ -23,7 +23,7 @@ Meteor.startup(() => {
     // console.log(Meteor.call('get_comment', 0, 1));
     //
     // console.log("DATABASE DUMP WOOHOO");
-    // console.log(PostData.find().fetch());
+    console.log(PostData.find().fetch());
 })
 
 // Server Methods

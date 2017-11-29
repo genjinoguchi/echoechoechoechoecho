@@ -13,6 +13,8 @@ Template.new_home.helpers({
     current_post() {
         Meteor.call("get_current_post", function(err, result) {
             if (err) console.warn(err)
+            console.log("current post")
+            console.log(result)
             Session.set("current_post", result)
         })
         return Session.get("current_post")
@@ -20,6 +22,7 @@ Template.new_home.helpers({
     old_posts() {
         Meteor.call("get_old_posts", function (err, result) {
             if (err) console.warn(err)
+            console.log(result)
             Session.set("old_posts", result)
         });
         return Session.get("old_posts")
@@ -48,8 +51,7 @@ Template.new_post.events({
         var a3_title = $("#a3-title-id").val();
         var a3_url = $("#a3-url-id").val();
         var question = $("#disc-q-id").val();
-        console.log(title.toString() + id.toString() + post_content.toString());
-        Meteor.call("create_post", headline, description, a1_title, a1_url, a2_title, a2_url, a3_title, a3_url, function(err, result) {
+        Meteor.call("create_post", headline, description, a1_title, a1_url, a2_title, a2_url, a3_title, a3_url, question, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
             FlowRouter.go("/")

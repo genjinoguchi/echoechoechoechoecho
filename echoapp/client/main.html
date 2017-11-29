@@ -40,8 +40,8 @@
   <div class="todays-post">
     <div class="todays-post-header">This week's discussion</div>
     <div class="todays-card">
-      <div class="todays-post-title">{{this.current_post.title}}</div>
-      <div class="todays-post-description">{{this.current_post.description}}</div>
+      <div class="todays-post-title">{{current_post.headline}}</div>
+      <div class="todays-post-description">{{current_post.description}}</div>
       <div class="join"> <a href="/post/{{this.pid}}">join the discussion!>> </a></div>
     </div>
   </div>
@@ -50,8 +50,8 @@
     <div class="todays-post-header">Previous Discussions</div>
         {{#each old_posts}}
             {{> old_post_box}}
+            <div class="gap"></div>
         {{/each}}
-    <div class="gap"></div>
     <!--
     <div class="todays-card">
       <div class="todays-post-title">Donald Trump Jr. and WikiLeaks Correspondence</div>
@@ -66,7 +66,7 @@
 
 <template name="old_post_box">
     <div class="todays-card">
-      <div class="todays-post-title">{{this.title}}</div>
+      <div class="todays-post-title">{{this.headline}}</div>
       <div class="todays-post-description">{{this.description}}</div>
       <div class="join"> <a href="/posts/{{this.pid}}">view previous discussion>></a> </div>
     </div>
