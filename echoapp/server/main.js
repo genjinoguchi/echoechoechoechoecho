@@ -65,10 +65,10 @@ Meteor.methods({
     // get_all_posts: function() {
     //     return PostData.find({ type: "post" }).fetch();
     // },
-    // get_post: function(post_id) {
-    //     // Takes in post id and returns the post content.
-    //     return PostData.find({ pid : post_id, type : "post" }).fetch()[0];
-    // },
+    get_post: function(post_id) {
+        // Takes in post id and returns the post content.
+        return PostData.find({ pid : post_id, type : "post" }).fetch()[0];
+    },
     get_current_post: function() {
         //returns the current post
         return PostData.find({ type : "post", post_type : "current" }).fetch()[0];
