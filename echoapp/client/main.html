@@ -42,7 +42,7 @@
     <div class="todays-card">
       <div class="todays-post-title">{{current_post.headline}}</div>
       <div class="todays-post-description">{{current_post.description}}</div>
-      <div class="join"> <a href="/post/{{this.pid}}">join the discussion!>> </a></div>
+      <div class="join"> <a href="/post/{{current_post.pid}}">join the discussion!>> </a></div>
     </div>
   </div>
 
@@ -114,9 +114,8 @@
         <div class="gap"></div>
         {{> comment}}
         <div class="gap"></div>
-
-        <input type="text" name="username-input" placeholder="username" class="input-lol ">
-        <input type="textarea" name="username-input" placeholder="comment">
+        <input type="text" id="username-input1" placeholder="username">
+        <input type="textarea" id="username-input1" placeholder="comment">
         <button name="reply-button-1" id="reply-button-1">reply</button>
 
 
