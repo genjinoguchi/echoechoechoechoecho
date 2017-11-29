@@ -98,7 +98,7 @@ Template.post.helpers({
         if (result) {
             for (var i=0; i<result.length; i++) {
                 var element = result[i]
-                element.format_date = (new Date(element.time)).toDateString()
+                element.format_date = (new Date(element.time)).toLocaleString()
             }
             console.log("result")
             console.log(result)
@@ -110,7 +110,7 @@ Template.post.helpers({
         if (result) {
             for (var i=0; i<result.length; i++) {
                 var element = result[i]
-                element.format_date = (new Date(element.time)).toDateString()
+                element.format_date = (new Date(element.time)).toLocaleString()
             }
             return result
         }
@@ -120,7 +120,7 @@ Template.post.helpers({
         if (result) {
             for (var i=0; i<result.length; i++) {
                 var element = result[i]
-                element.format_date = (new Date(element.time)).toDateString()
+                element.format_date = (new Date(element.time)).toLocaleString()
             }
             return result
         }
