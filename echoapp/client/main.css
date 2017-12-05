@@ -1,150 +1,12 @@
-/* CSS declarations go here */
+:root {
+    --main-blue: #3772B4;
+    --color-text: #444444;
+}
+
 body {
     font-family: 'Roboto-light', sans-serif;
     background-color: #FEFEFE;
-}
-
-.home {
-    color: #1385DB;
-    padding-top: 20px;
-}
-
-.content-card {
-    width: 100%;
-    height: 400px;
-    background-color: #E1F0FE;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 20px;
-    position: relative;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.new-card {
-    background-color: #1385DB;
-}
-
-.card-title {
-    color: #1385DB;
-    text-align: center;
-    font-weight: bold;
-    padding-top: 40px;
-    font-size: 25pt;
-}
-
-.card-description {
-    color: #3D83B8;
-    font-size: 15pt;
-    padding-top: 20px;
-    text-align: center;
-}
-
-.read-more {
-    text-align: center;
-    color: #1385DB;
-    padding-top: 15px;
-}
-
-.new-opinion {
-    color: white;
-    text-align: center;
-    line-height: 400px;
-    font-size: 16pt;
-}
-
-
-
-.new-post-box {
-    border: solid;
-    border-color: blue;
-    border-width: 1px;
-    width: 100%;
-    height: 400px;
-}
-
-.blue-banner {
-    background-color: #348BD6;
-    width: 100%;
-    height: 500px;
-    padding: 5% 0;
-}
-
-.break {
-    height: 30px;
-}
-
-.post-title {
-    color: white;
-    text-align: left;
-    font-size: 50pt;
-    padding: 5% 0;
-    padding-left: 40px;
-}
-
-.post-description {
-    color: white;
-    font-size: 15pt;
-    padding: 5% 0;
-    padding-top: 15%;
-}
-
-.comment-box {
-    margin-top: 30px;
-    width: 100%;
-    height: auto;
-    position: relative;
-    color: #297FCA;
-}
-
-.col-centered{
-    float: none;
-    margin: 0 auto;
-}
-
-/*.username {
-    font-size: 16pt;
-    position: relative;
-    font-weight: bold;
-}*/
-
-.time {
-    font-weight: lighter;
-    font-size: 12pt;
-}
-
-/*.comment {
-    margin-top: 10px;
-    color: #297FCA;
-}*/
-
-.all-blue {
-    width: 100%;
-    height: 100vh;
-    background-color: #348BD6;
-}
-
-.new-post-title {
-    color: white;
-    font-size: 50pt;
-    padding-left: 20px;
-    font-weight: lighter;
-    padding-top: 30px;
-}
-
-
-.post-input {
-    background-color: #E4F1FD;
-    text-decoration: none;
-    border:none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    border-radius: 5px;
-    font-size: 15pt;
-    color: #348BD6;
-    padding-left: 10px;
-    width: 50%;
+    color: var(--color-text);
 }
 
 textarea:focus, input:focus, textarea{
@@ -167,224 +29,6 @@ textarea {
     border-width: 2px;
 }
 
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  /*padding-left: 30px;*/
-}
-
-.submit-button {
-    color: white;
-    border: none;
-    font-size: 15pt;
-    background-color: #3FA2F7;
-    border-radius: 5px;
-}
-
-.new-post-submit {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    border: none;
-    border-radius: 5px;
-    background-color: white;
-    color: #3FA2F7;
-    font-size: 14pt;
-}
-
-.welcome {
-    width: 100%;
-    height: auto;
-    background-color: #8dacdd;
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-.welcome-text {
-    color: white;
-    width:70%;
-    font-size: 25px;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.logo {
-    width: 300px;
-    height: 300px;
-    background-color: white;
-    margin:0 auto;
-    margin-bottom: 15px;
-    border-radius: 150px;
-}
-
-.todays-post {
-    width: 100%;
-    height: 400px;
-    background-color: #f2f2f2;
-    padding-top: 30px;
-}
-
-.todays-card {
-    width: 700px;
-    height: auto;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 10px;
-    padding: 25px 25px 25px 25px;
-    box-shadow: 0 0 5px grey;
-}
-
-.todays-post-header {
-    text-align: center;
-    font-size: 25px;
-    padding-bottom: 20px;
-    font-weight: bolder;
-}
-
-.todays-post-title {
-    text-align: center;
-    font-size: 30px;
-}
-
-.todays-post-description {
-    text-align: center;
-    font-size: 20px;
-    padding-top: 10px;
-}
-
-.join {
-    text-align: center;
-    font-size: 15px;
-    color: #8AA9DF;
-    padding-top: 20px;
-}
-
-.previous-discussions {
-    width: 100%;
-    height: auto;
-    padding-top: 30px;
-    background-color: #fcfdff;
-}
-
-.gap {
-    height: 50px;
-}
-
-.headline {
-    color: white;
-    font-size: 40px;
-    text-align: center;
-    font-weight: bolder;
-}
-
-.post-description {
-    padding-top: 10px;
-    padding-bottom: 0;
-    color: white;
-    font-size: 20px;
-    text-align: center;
-    width: 70%;
-    margin: 0 auto;
-}
-
-.subheader {
-    padding-top: 0;
-    text-align: center;
-}
-
-.no-padding {
-    padding: 0;
-}
-
-.article {
-    text-align: center;
-    font-size: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.articles {
-    width: 100%;
-    height: auto;
-    background-color: #eaeaea;
-    padding-bottom: 20px;
-}
-
-.read {
-    font-weight: bold;
-}
-
-.back {
-    font-size: 20px;
-    color: white;
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-a {
-    text-align: center;
-    color: inherit;
-    text-decoration: none;
-}
-
-.prompt-container {
-    margin-top: 20px;
-    width: 90%;
-    height: auto;
-    border: solid;
-    border-color: #eaeaea;
-    border-width: 2px;
-    border-radius: 10px;
-    margin: 0 auto;
-    padding: 20px 20px 20px 20px;
-    margin-bottom: 30px;
-}
-
-.prompt-header {
-    text-align: center;
-    font-size: 25px;
-    padding-top: 20px;
-}
-
-.comment-border {
-    width: 50%;
-    height: auto;
-    border-radius: 10px;
-    /*background-color: black;*/
-    margin: 0 auto;
-    border:solid;
-    border-width: 2px;
-    border-color: grey;
-    padding: 20px 20px 20px 20px;
-}
-
-.username {
-    font-size: 20px;
-    font-weight: bolder;
-}
-
-.timestamp {
-    float: right;
-    color: grey;
-    bottom: 10px;
-    position: relative;
-}
-
-.input-lol {
-    border-radius: 5px;
-    color: black;
-    display: block;
-}
-
-.comment-text {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.comment-text-area {
-    width: 40%;
-    height: 100px;
-}
-
 button {
     border-radius: 5px;
 }
@@ -396,7 +40,110 @@ input {
     padding-left: 10px;
 }
 
-.comment-section {
-    position: relative;
-    left: 25%;
+.nav {
+    width: 100%;
+    height: 60px;
+    background-color: var(--main-blue);
+}
+
+.opinion-background {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    height: auto;
+    background-color: #F0F0F0;
+}
+
+.card {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px grey;
+}
+
+.opinion-card {
+    margin: 0 auto;
+    height: auto;
+    width: 70%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.opinion-label {
+    font-size: 20px;
+    color: var(--color-text);
+    display: inline-block;
+    font-weight: bold;
+}
+
+.opinion-text {
+    display: inline-block;
+    color: var(--main-blue);
+    font-size: 20px;
+
+}
+
+.opinion-description {
+    padding-top: 15px;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.check-out {
+    font-weight: bold;
+    font-size: 18px;
+    padding-top: 30px;
+}
+
+.articles {
+    width: 100%;
+}
+
+.article {
+    margin: 30px 20px;
+    width: 220px;
+    height: auto;
+    border-radius: 5px;
+    border: solid;
+    border-width: 1px;
+    border-color: #979797;
+    padding:30px 20px 30px 20px;
+    text-align: center;
+    display: inline-block;
+}
+
+.article-title {
+    font-size: 18px;
+}
+
+.article-source {
+    font-weight: bold;
+    padding-top: 30px;
+}
+
+.agreement-card {
+    width: 70%;
+    height: 100px;
+    margin: 20px auto;
+    border-color: transparent;
+}
+
+.agree {
+    background-color: #A8BBD2;
+    float: right;
+}
+
+.disagree {
+    background-color: #C6A1A0;
+    float: left;
+}
+
+.agree-disagree-text {
+    font-size: 49px;
+    font-weight: bold;
+    color: #5F5F5F;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px; /* same as div height */
 }

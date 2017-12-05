@@ -6,299 +6,94 @@
 
 
 <body>
-  <!--{{> post}}-->
+  {{> home}}
 </body>
 
-<template name="new_post">
- <div class="all-blue">
-  <div class="new-post-title">
-    What is your opinion?
+<template name="home">
+  {{> navbar}}
+  {{> opinion_of_the_day}}
+  {{> agree_disagree}}
+</template>
+
+<template name="navbar">
+  <div class="nav">
   </div>
-  <form onsubmit="">
-    <textarea class="new_post" id="headline-id" name="headline" placeholder="Headline"></textarea>
-    <textarea id="description-id" name="description" placeholder="Short description of news story"></textarea>
-    <textarea id="a1-title-id" name="a1-title" placeholder="Title of Article 1"></textarea>
-    <textarea id="a1-url-id" name="a1-url" placeholder="Link to Article 1"></textarea>
-    <textarea id="a2-title-id" name="a2-title" placeholder="Title of Article 2"></textarea>
-    <textarea id="a2-url-id" name="a2-url" placeholder="Link to Article 2"></textarea>
-    <textarea id="a3-title-id" name="a3-title" placeholder="Title of Article 3"></textarea>
-    <textarea id="a3-url-id" name="a3-url" placeholder="Link to Article 3"></textarea>
-    <textarea id="disc-q-id" name="disc-question" placeholder="Relevant discussion question"></textarea>
-    <button class="new-post-submit" type="submit">submit</button>
-  </form>
+</template>
+
+<template name="opinion_of_the_day">
+  <div class="opinion-background">
+    <div class="card opinion-card">
+      <div class="opinion-label">
+        OPINION OF THE DAY:
+      </div>
+      <div class="opinion-text">
+       “Piracy of digital media does not hurt the industry.”
+     </div>
+     <div class="opinion-description">
+       "To start with, piracy practices can be used as a source for market insights. This has a reason. The P2P file sharing service revealed the massive demand for online, digital music. For example we have Napster. It proved that there was a desire to have access to digital high quality recordings, a wide selection of music, and a service that was easy to use."
+     </div>
+     <div class="check-out">
+      Check out these articles before responding:
+    </div>
+    <div class="articles">
+      {{> article1}}
+      {{> article}}
+      {{> article}}
+    </div>
+  </div>
 </div>
 </template>
 
-
-<template name="new_home">
-  <div class="welcome">
-    <div class="logo"></div>
-    <div class="welcome-text">
-      Welcome to _____! This is a place where we have a weekly discussion on current events. Every Friday at ____, we post a link to a post where you can read up on a current event, and have discussion with other people on your thoughts and opinions about what you read. We pull articles from <a href="https://www.allsides.com/unbiased-balanced-news link">AllSides</a> and give prompts to guide conversations in the comments section.
+<template name="article1">
+  <div class="article">
+    <div class="article-title">
+      Does Online Piracy Hurt The Entertainment Industry?
     </div>
-  </div>
-  <div class="todays-post">
-    <div class="todays-post-header">This week's discussion</div>
-    <div class="todays-card">
-      <div class="todays-post-title">{{current_post.headline}}</div>
-      <div class="todays-post-description">{{current_post.description}}</div>
-      <div class="join"> <a href="/post/{{current_post.pid}}">join the discussion!>> </a></div>
+    <div class="article-source">
+      Forbes
     </div>
-  </div>
-
-  <div class="previous-discussions">
-    <div class="todays-post-header">Previous Discussions</div>
-    {{#each old_posts}}
-    {{> old_post_box}}
-    <div class="gap"></div>
-    {{/each}}
-    <!--
-    <div class="todays-card">
-      <div class="todays-post-title">Donald Trump Jr. and WikiLeaks Correspondence</div>
-      <div class="todays-post-description">One month before the presidential election, President Trump tweeted about John Podesta's hacked emails 15 minutes after WikiLeaks asked Donald Trump Jr. to do so in a secret exchange.s</div>
-      <div class="join"><a href="">view previous discussion>></a> </div>
-    </div>
-  -->
-  <div class="gap"></div>
-</div>
-
-</template>
-
-<template name="old_post_box">
-  <div class="todays-card">
-    <div class="todays-post-title">{{this.headline}}</div>
-    <div class="todays-post-description">{{this.description}}</div>
-    <div class="join"> <a href="/posts/{{this.pid}}">view previous discussion>></a> </div>
   </div>
 </template>
 
-
-<template name="post">
-  <div class="welcome">
-    <div class="back"> <a href="">BACK</a> </div>
-    <div class="headline">Conyers steps down, Pelosi criticized</div>
-    <div class="post-description">In response to sexual misconduct accusations, Rep John Conyers, D-Michigan, stepped down from the House Judiciary Committee where he has served as the ranking Democrat. House Minority Leader Nancy Pelosi, D-California, has been criticized for defending him after strongly</div>
-  </div>
-
-  <div class="articles">
-    <div class="gap"></div>
-    <div class="todays-post-header no-padding">Articles on this event</div>
-    <div class="subheader">Please read all three articles before participating</div>
-    <div class="gap"></div>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4 article">
-          Pelosi stumbles on alleged harassment in her own ranks
-          <div class="read"><a target="blank" href="http://www.allsides.com/news/2017-11-27-1014/pelosi-stumbles-alleged-harassment-her-own-ranks">read ></a></div>
-        </div>
-        <div class="col-md-4 article">
-          John Conyers Steps Down From Judiciary Committee Role Amid Sexual Misconduct Claims
-          <div class="read"><a target="blank" href="https://www.npr.org/sections/thetwo-way/2017/11/26/566605296/john-conyers-steps-down-from-judiciary-committee-role-amid-sexual-misconduct-cla">read ></a></div>
-        </div>
-        <div class="col-md-4 article">
-          Pelosi faces backlash for questioning Conyers accusers
-          <div class="read"><a target="blank" href="http://www.foxnews.com/politics/2017/11/27/pelosi-faces-backlash-for-questioning-conyers-accusers.html">read ></a></div>
-        </div>
-      </div>
+<template name="article2">
+  <div class="article">
+    <div class="article-title">
+      Does Digital Piracy Really Hurt Movies?
     </div>
-  </div>
-
-  <div class="discussion">
-    <div class="gap"></div>
-    <div class="todays-post-header">Discussion</div>
-
-
-    <div class="prompt-container">
-      <div class="prompt-header">
-        Do you think Conyers response to step down was the proper one in light of the situation?
-      </div>
-      <div class="comments-header">
-        <div class="gap"></div>
-        {{#each comments1}}
-            {{> comment}}
-        {{/each}}
-        <div class="gap"></div>
-
-        <div class="comment-section">
-          <input type="text" id="username-input1" placeholder="username" class="input-lol comment-text">
-          <textarea type="text" id="username-input1" placeholder="comments" class="input-lol comment-text comment-text-area"> </textarea>
-          <button name="reply-button-1" id="reply-button-1">reply</button>
-        </div>
-      </div>
+    <div class="article-source">
+      Scientific American
     </div>
-
-    <div class="prompt-container">
-      <div class="prompt-header">
-        What did you think about Nancy Pelosi's response?
-      </div>
-      <div class="comments-header">
-        <div class="gap"></div>
-        {{> comment}}
-        <div class="gap"></div>
-
-        <div class="comment-section">
-          <input type="text" id="username-input1" placeholder="username" class="input-lol comment-text">
-          <textarea type="text" id="username-input1" placeholder="comments" class="input-lol comment-text comment-text-area"> </textarea>
-          <button name="reply-button-1" id="reply-button-1">reply</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="prompt-container">
-      <div class="prompt-header">
-        In light of the many recent sexual harassment allegations towards public figures, how should we legitimize and confirm those claims, and how do we balance beleif in skepticism in those moment?
-      </div>
-      <div class="comments-header">
-        <div class="gap"></div>
-        {{> comment}}
-        <div class="gap"></div>
-
-        <div class="comment-section">
-          <input type="text" id="username-input1" placeholder="username" class="input-lol comment-text">
-          <textarea type="text" id="username-input1" placeholder="comments" class="input-lol comment-text comment-text-area"> </textarea>
-          <button name="reply-button-1" id="reply-button-1">reply</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-</template>
-
-
-<template name="comment">
-  <div class="comment-border">
-
-    <div class="username">{{this.nickname}}</div>
-    <div class="comment">{{this.content}}</div>
-    <div class="timestamp">{{this.format_date}}</div>
-
   </div>
 </template>
 
+<template name="article3">
+  <div class="article">
+    <div class="article-title">
+      Hollywood director: piracy is necessary, and doesn't hurt revenues
+    </div>
+    <div class="article-source">
+      The guardian
+    </div>
+  </div>
+</template>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <template name="homer_simpson">
+<template name="agree_disagree">
   <div class="container-fluid">
     <div class="row">
-      {{> new_card}}
-      {{#each posts}}
-      {{> card}}
-      {{/each}}
-    </div>
-  </div>
-</template>
-
-<template name="card">
-  <div class="col-lg-3 col-md-6 col-sm-12">
-    <div class="content-card">
-      <div class="card-title">
-        {{this.title}}
-      </div> -->
-<!--       <div class="card-description">
-        {{this.description}}
-      </div> -->
-      <!-- <div class="break"></div>
-      <a href="/post/{{this.pid}}" class="read-more">
-        read more >
-      </a>
-    </div>
-  </div>
-</template>
-
-<template name="new_card">
-  <div class="col-lg-3 col-md-6 col-sm-12">
-    <div class="content-card new-card">
-      <a href="/new" class="new-opinion">
-        add new opinion +
-      </a>
-    </div>
-  </div>
-</template>
-
-<template name="post">
-  <div class="blue-banner">
-    <div class="row">
       <div class="col-md-6">
-        <p class="post-title">
-          {{post.title}}
-        </p>
+        <div class="card agreement-card agree">
+          <div class="agree-disagree-text">
+            I agree
+          </div>
+        </div>
       </div>
-      <div class="col-md-6 col-md-offset-3">
-        <p class="post-description">
-          {{post.description}}
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="break"></div>
-  {{#each comments}}
-  {{> comment}}
-  {{/each}}
-  {{> reply}}
-  <div class="break"></div>
-</template>
-
-<template name="comment">
-  <div class="col-md-8 col-centered">
-    <div class="comment-box">
-      <div class="username">
-        {{this.nickname}}
-      </div>
-      <div class="comment">
-        {{this.content}}
+      <div class="col-md-6">
+        <div class="card agreement-card disagree">
+          <div class="agree-disagree-text">
+            I disagree
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
-
-<template name="reply">
-
-  <div class="col-md-8 col-centered">
-    <div class="comment-box col-centered">
-      <div class="break"></div>
-      <input class="post-input" placeholder="write a response" type="text" name="reply-text">
-      <button class="submit-reply-button">submit</button>
-    </div>
-  </div>
-  <div class="break"></div>
-
-</template>
-
-
-<template name="new_post"> <div class="all-blue">
-  <div class="new-post-title">
-    What is your opinion?
-  </div>
-  <textarea class="new_post" id="username-id" name="username" placeholder="What is your name? (a nickname works too!)"></textarea>
-  <textarea id="new-title-id" name="new-title" placeholder="in one sentence, describe your opinion"></textarea>
-  <textarea id="description-id" name="description" placeholder="give us some more details on why you think that"></textarea>
-  <button class="new-post-submit" type="submit">submit</button>
-</div>
-</template>
--->
