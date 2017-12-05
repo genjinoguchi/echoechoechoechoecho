@@ -2,6 +2,7 @@
   <title>echoapp</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 </head>
 
 
@@ -13,13 +14,17 @@
   {{> navbar}}
   {{> opinion_of_the_day}}
   {{> agree_disagree}}
+  {{> comments}}
+  {{> reply}}
 </template>
 
+<!-- navbar -->
 <template name="navbar">
   <div class="nav">
   </div>
 </template>
 
+<!-- opinion -->
 <template name="opinion_of_the_day">
   <div class="opinion-background">
     <div class="card opinion-card">
@@ -37,13 +42,14 @@
     </div>
     <div class="articles">
       {{> article1}}
-      {{> article}}
-      {{> article}}
+      {{> article2}}
+      {{> article3}}
     </div>
   </div>
 </div>
 </template>
 
+<!-- articles -->
 <template name="article1">
   <div class="article">
     <div class="article-title">
@@ -77,23 +83,161 @@
   </div>
 </template>
 
+
+<!-- agree or disagree -->
 <template name="agree_disagree">
-  <div class="container-fluid">
+  <div class="container-fluid agree_disagree">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6 green-background">
         <div class="card agreement-card agree">
           <div class="agree-disagree-text">
             I agree
           </div>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 red-background">
         <div class="card agreement-card disagree">
           <div class="agree-disagree-text">
             I disagree
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</template>
+
+
+<!-- comments -->
+<template name="comments">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class="col-md-1"></div> -->
+      <div class="col-md-6 green-background">
+        <div class="float-right">
+          {{> comment_pro}}
+          {{> comment_pro}}
+          {{> reply_comment_pro}}
+        </div>
+
+      </div>
+      <div class="col-md-6 float-left red-background">
+        {{> comment_con}}
+        {{> comment_con}}
+        {{> reply_comment_con}}
+      </div>
+      <!-- <div class="col-md-1"></div> -->
+    </div>
+  </div>
+</template>
+
+
+<template name="comment_pro">
+  <div class="card comment pro">
+    <div class="username">
+      Gemma
+    </div>
+    <div class="score pro-score">
+      score hidden
+    </div>
+    <div class="comment-text">
+      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+    </div>
+    <div class="timestamp">
+      5 minutes ago
+      <div class="reply">
+        reply
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="reply_comment_pro">
+  <div class="card comment pro reply-card">
+    <div class="username">
+      Gemma
+    </div>
+    <div class="score pro-score">
+      score hidden
+    </div>
+    <div class="comment-text">
+      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+    </div>
+    <div class="timestamp">
+      5 minutes ago
+      <div class="reply">
+        reply
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="reply_comment_con">
+  <div class="card comment con reply-card">
+    <div class="username">
+      Gemma
+    </div>
+    <div class="score pro-score">
+      score hidden
+    </div>
+    <div class="comment-text">
+      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+    </div>
+    <div class="timestamp">
+      5 minutes ago
+      <div class="reply">
+        reply
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<template name="comment_con">
+  <div class="card comment con">
+    <div class="username">
+      Gemma
+    </div>
+    <div class="score pro-score">
+      score hidden
+    </div>
+    <div class="comment-text">
+      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+    </div>
+    <div class="timestamp">
+      5 minutes ago
+      <div class="reply">
+        reply
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="reply">
+  <div class="reply-background">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          {{> blocked_input}}
+        </div>
+        <div class="col-md-6">
+          {{> input}}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="input">
+  <div class="card input-card">
+    <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+    <button class="reply-button">reply</button>
+  </div>
+</template>
+
+<template name="blocked_input">
+  <div class="card blocked-card">
+    <div class="blocked-text">
+      Sorry, you can’t reply here since you agreed.
     </div>
   </div>
 </template>

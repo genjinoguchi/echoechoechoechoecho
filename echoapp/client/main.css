@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: 'Roboto-light', sans-serif;
+    font-family: 'Space Mono', monospace;
     background-color: #FEFEFE;
     color: var(--color-text);
 }
@@ -26,18 +26,11 @@ textarea {
     color: white;
     padding-left: 10px;
     border-color: grey;
-    border-width: 2px;
+    border-width: 1px;
 }
 
 button {
     border-radius: 5px;
-}
-
-input {
-    border: solid;
-    border-width: 2px;
-    border-color: grey;
-    padding-left: 10px;
 }
 
 .nav {
@@ -80,7 +73,8 @@ input {
 .opinion-text {
     display: inline-block;
     color: var(--main-blue);
-    font-size: 20px;
+    padding-top: 5px;
+    font-size: 25px;
 
 }
 
@@ -123,19 +117,23 @@ input {
 }
 
 .agreement-card {
-    width: 70%;
+    width: 100%;
     height: 100px;
     margin: 20px auto;
     border-color: transparent;
 }
 
+.agree-disagree {
+    padding-bottom: 300px;
+}
+
 .agree {
-    background-color: #A8BBD2;
+    background-color: #96CAAB !important;
     float: right;
 }
 
 .disagree {
-    background-color: #C6A1A0;
+    background-color: #C6A1A0 !important;
     float: left;
 }
 
@@ -146,4 +144,133 @@ input {
     text-align: center;
     vertical-align: middle;
     line-height: 100px; /* same as div height */
+}
+
+.comment {
+    width: 80%;
+    height: auto;
+    padding:15px 15px 15px 15px;
+    margin: 10px 10px 10px 10px;
+    display: inline-block;
+    float: right;
+
+}
+
+.pro {
+    border-color: #86D0AC !important;
+}
+
+.con {
+    border-color: #C6A1A0 !important;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.reply {
+    float: right;
+    color: var(--color-text);
+    font-weight: bold;
+}
+
+.score {
+    font-size: 15px;
+    right: 0;
+}
+
+.pro-score {
+    color: #A8BBD2;
+}
+
+.con-score {
+    color: #C6A1A0;
+}
+
+.comment-text {
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.timestamp {
+    color: #848484;
+    font-size: 15px;
+    padding-top: 10px;
+}
+
+.reply-background {
+    margin-top: 20px;
+    width: 100%;
+    height: auto;
+    background-color: #EEEEEE;
+    padding-bottom: 20px;
+}
+
+.reply-card {
+    float: right;
+    width: 60%;
+}
+
+.input-card {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    padding: 20px 20px 20px 20px;
+}
+
+.blocked-card {
+    width: 100%;
+    height: auto;
+
+    background-color: #E2E2E2 !important;
+    height: 90%;
+    margin-top: 20px;
+    padding: 20px 20px 20px 20px;
+
+    text-align: center;
+    font-size: 22px;
+
+    display: table;
+    overflow: hidden;
+}
+
+.blocked-text {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+textarea {
+    border: solid;
+    border-width: 1px;
+    border-color: #979797;
+    height: 100px;
+    padding-left: 10px;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 100%;
+    color: var(--color-text);
+}
+
+.reply-button {
+    border-radius: 5px;
+    background-color: var(--main-blue);
+    color: white;
+    margin-top: 10px;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.red-background {
+    background-color: #f2dedf;
+}
+
+.green-background {
+    background-color: #d3eddd;
 }
