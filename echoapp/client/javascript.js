@@ -65,9 +65,9 @@ $(document).ready(function(){
 
     $(".change").click(function(event) {
         /* Act on the event */
-        $(".jenji").replaceWith("<input class='username-input' type='text' name='' placeholder='type your name'> <button class='username-button' >change</button>");
+        $(".jenji").replaceWith("<input id='username-input' type='text' name='' placeholder='type your name'> <button class='username-button' >change</button>");
     });
 
-
+    $(".username-button").replaceWith("<div class='jenji'> Hi " + $("#username-input").val() + "</div>");
 
 })

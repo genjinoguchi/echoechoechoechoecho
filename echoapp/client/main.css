@@ -46,7 +46,7 @@ a {
     color: white;
 }
 
-.username-input {
+#username-input {
     position: absolute;
     right: 50px;
     margin-right: 45px;

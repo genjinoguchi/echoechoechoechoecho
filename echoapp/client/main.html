@@ -135,30 +135,34 @@
 
       <div class="col-md-6 green-background">
         <div class="float-right">
+          {{#each pro_comments}}
           {{> comment_pro}}
+          {{/each}}
         </div>
       </div>
       <div class="col-md-6 float-left red-background">
+        {{#each con_comments}}
         {{> comment_con}}
+        {{/each}}
       </div>
 
     </div>
   </div>
 </template>
 
-
 <!-- comment pro -->
 <template name="comment_pro">
+
   <div class="card comment pro">
     <div class="username">
-      Gemma
+      {{this.nickname}}
     </div>
-    <div class="score pro-score">score: 0</div>
+    <div class="score pro-score">score: {{this.rating}}</div>
     <div class="comment-text">
-      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+      {{this.content}}
     </div>
     <div class="timestamp">
-      5 minutes ago
+      {{this.time}}
       <div class="reply 0">
         reply
       </div>
@@ -171,7 +175,7 @@
 
   <div class="sub-reply" id="0">
     <div class="card input-card">
-      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+      <textarea type="text" name="reply-input" placeholder="write why you think so!"></textarea>
       <button class="reply-button">reply</button>
     </div>
   </div>
@@ -182,14 +186,14 @@
 <template name="comment_con">
   <div class="card comment con">
     <div class="username">
-      Gemma
+      {{this.nickname}}
     </div>
-    <div class="score con-score">score: 0</div>
+    <div class="score pro-score">score: {{this.rating}}</div>
     <div class="comment-text">
-      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+      {{this.content}}
     </div>
     <div class="timestamp">
-      5 minutes ago
+      {{this.time}}
       <div class="reply 1">
         reply
       </div>
@@ -202,7 +206,7 @@
 
   <div class="sub-reply" id="1">
     <div class="card input-card">
-      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+      <textarea type="text" name="reply-input" placeholder="write why you think so!"></textarea>
       <button class="reply-button">reply</button>
     </div>
   </div>
