@@ -242,6 +242,7 @@ a {
 .score {
     font-size: 15px;
     right: 0;
+    cursor: pointer;
 }
 
 .pro-score {
