@@ -332,8 +332,10 @@ Template.comment_con.events({
         var user_id = Session.get("username");
         user_id = user_id ? user_id : "Anonymous";
         var comment_id = this.cid;
+        var reply_content = $("#reply-input-" + this.cid).val();
         // TODO: assert comment_content is not empty
         var timestamp = Date.now();
+
         console.log("this.cid")
         console.log(this.cid)
         console.log("Reply content")
