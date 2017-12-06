@@ -242,6 +242,28 @@ Template.comment_pro.events({
             // })
         })
         $(".reply-input").val("");
+    },
+    "click #upvote"(event, instance) {
+        var post_id = 0
+        var user_id = Session.get("username");
+        user_id = user_id ? user_id : "Anonymous";
+        var comment_id = this.cid;
+        var reply_content = $("#reply-input-" + this.cid).val();
+        console.log(reply_content)
+        // TODO: assert comment_content is not empty
+        var timestamp = Date.now();
+
+        Meteor.call("upvote_comment", post_id, comment_id, function(err, result) {
+            if (err) console.warn(err)
+
+            Meteor.call("get_comments_pro", post_id, function(err, result) {
+                if (err) console.warn(err);
+                result.forEach(function(element) {
+                    element.format_date = format_date(element.time)
+                })
+                Session.set("comments_pro", result);
+            })
+        })
     }
 })
 
@@ -347,6 +369,25 @@ Template.comment_con.events({
             // })
         })
         $(".reply-input").val("");
+    },
+    "click #upvote"(event, instance) {
+        var post_id = 0
+        var user_id = Session.get("username");
+        user_id = user_id ? user_id : "Anonymous";
+        var comment_id = this.cid;
+        var timestamp = Date.now();
+
+        Meteor.call("upvote_comment", post_id, comment_id, function(err, result) {
+            if (err) console.warn(err)
+
+            Meteor.call("get_comments_pro", post_id, function(err, result) {
+                if (err) console.warn(err);
+                result.forEach(function(element) {
+                    element.format_date = format_date(element.time)
+                })
+                Session.set("comments_con", result);
+            })
+        })
     }
 })
 
@@ -358,6 +399,34 @@ Template.comment_con.helpers({
         } else {
             return [];
         }
+    }
+})
+
+Template.reply_comment_con.events({
+    "click #upvote-reply"(event, instance) {
+        var post_id = 0
+        var user_id = Session.get("username");
+        user_id = user_id ? user_id : "Anonymous";
+        var comment_id = this.cid;
+        var timestamp = Date.now();
+
+        Meteor.call("upvote_reply", post_id, comment_id, rid, function(err, result) {
+            if (err) console.warn(err)
+        })
+    }
+})
+
+Template.reply_comment_pro.events({
+    "click #upvote-reply"(event, instance) {
+        var post_id = 0
+        var user_id = Session.get("username");
+        user_id = user_id ? user_id : "Anonymous";
+        var comment_id = this.cid;
+        var timestamp = Date.now();
+
+        Meteor.call("upvote_reply", post_id, comment_id, rid, function(err, result) {
+            if (err) console.warn(err)
+        })
     }
 })
 

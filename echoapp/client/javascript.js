@@ -51,7 +51,7 @@ $(document).ready(function(){
             console.log("hello");
             var cls = $(event.target).attr('class').split(" ")[1];
             console.log(cls);
-
+            $(".sub-reply").hide();
             $("#" + cls.toString()).toggle();
 
         // console.log($(this).attr('id'));
