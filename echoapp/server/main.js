@@ -81,6 +81,7 @@ Meteor.methods({
         //returns all old/archived posts
         return PostData.find({ type : "post", post_type : "previous" }, { sort : { pid : -1 }}).fetch();
     },
+    //NOTE: side should be "pro" or "con"
     add_comment: function(user, post_id, side, comment_content, time) {
         // Takes in username, post id, and comment content, and returns the comment id.
         var temp = PostData.find({ type: "global ids" }).fetch()[0].global_cid;
@@ -100,19 +101,25 @@ Meteor.methods({
 
         return temp;
     },
-    get_post_comments: function(post_id, prompt_id) {
-        // takes in post id, and returns all the comments for the post.
-        return PostData.find({ pid : post_id, prid : prompt_id, type : "comment" }).fetch();
+    // get_post_comments: function(post_id, prompt_id) {
+    //     // takes in post id, and returns all the comments for the post.
+    //     return PostData.find({ pid : post_id, prid : prompt_id, type : "comment" }).fetch();
+    // },
+    // get_comment: function(post_id, comment_id) {
+    //     // takes in post id and comment id, and returns the comment content.
+    //     return PostData.find({ pid : post_id, cid : comment_id, type : "comment"}).fetch()[0];
+    // },
+    upvote_comment: function(post_id, comment_id) {
+        PostData.update({ pid : post_id, cid : comment_id, type : "comment" }, { $inc : { rating : 1 } })
     },
-    get_comment: function(post_id, comment_id) {
-        // takes in post id and comment id, and returns the comment content.
-        return PostData.find({ pid : post_id, cid : comment_id, type : "comment"}).fetch()[0];
+    get_comment_rating: function(post_id, comment_id) {
+        return PostData.find({ pid : post_id, cid : comment_id, type : "comment" }).fetch()[0].rating;
     },
-    upvote: function(post_id, comment_id) {
-        PostData.update({ pid : post_id, cid : comment_id }, { $inc : { rating : 1 } })
+    upvote_reply: function(post_id, comment_id, reply_id) {
+        PostData.update({ pid : post_id, cid : comment_id, rid : reply_id, type : "reply" }, { $inc : { rating : 1 } })
     },
-    get_rating: function(post_id, comment_id) {
-        return PostData.find({ pid : post_id, cid : comment_id }).fetch()[0].rating;
+    get_reply_rating: function(post_id, comment_id, reply_id) {
+        return PostData.find({ pid : post_id, cid : comment_id, rid : reply_id, type : "reply" }).fetch()[0].rating;
     },
     get_pro_comments: function(post_id) {
         return PostData.find({ pid : post_id, type : "comment", side : "pro"}, { sort : { rating : -1 }}).fetch();
@@ -131,6 +138,7 @@ Meteor.methods({
             pid : post_id,
             cid : comment_id,
             rid : temp,
+            rating : 0,
             type : "reply",
             content : reply_content,
             time : time
@@ -139,6 +147,6 @@ Meteor.methods({
         return temp;
     },
     get_replies: function(post_id, comment_id) {
-        return PostData.find({ pid : post_id, cid : comment_id, type : "reply" }, {sort : {rid : -1} }).fetch();
+        return PostData.find({ pid : post_id, cid : comment_id, type : "reply" }, {sort : {rid : 1} }).fetch();
     }
 })
