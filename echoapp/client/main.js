@@ -13,7 +13,7 @@ Template.new_home.helpers({
     current_post() {
         Meteor.call("get_current_post", function(err, result) {
             if (err) console.warn(err)
-            console.log("current post")
+                console.log("current post")
             console.log(result)
             Session.set("current_post", result)
         })
@@ -22,7 +22,7 @@ Template.new_home.helpers({
     old_posts() {
         Meteor.call("get_old_posts", function (err, result) {
             if (err) console.warn(err)
-            console.log(result)
+                console.log(result)
             Session.set("old_posts", result)
         });
         return Session.get("old_posts")
@@ -124,6 +124,13 @@ Template.post.helpers({
             }
             return result
         }
+    },
+    post() {
+        Meteor.call("get_current_post", function(err, result) {
+            if (err) console.warn(err);
+            Session.set("post", result);
+        })
+        return Session.get("post");
     }
 })
 
@@ -210,6 +217,8 @@ Template.post.events({
         $("#comment-input3").val("");
     }
 })
+
+Template.opinion_of_the_day.helpers({});
 
 /*
 Template.hello.onCreated(function helloOnCreated() {

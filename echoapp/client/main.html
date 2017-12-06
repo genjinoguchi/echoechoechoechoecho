@@ -38,6 +38,7 @@
 </template>
 
 <!-- opinion -->
+
 <template name="opinion_of_the_day">
   <div class="opinion-background">
     <div class="card opinion-card">
@@ -45,18 +46,32 @@
         OPINION OF THE DAY:
       </div>
       <div class="opinion-text">
-       “Piracy of digital media does not hurt the industry.”
+       {{post.headline}}
      </div>
      <div class="opinion-description">
-       "To start with, piracy practices can be used as a source for market insights. This has a reason. The P2P file sharing service revealed the massive demand for online, digital music. For example we have Napster. It proved that there was a desire to have access to digital high quality recordings, a wide selection of music, and a service that was easy to use."
+       {{post.description}}
      </div>
      <div class="check-out">
       Check out these articles before responding:
     </div>
     <div class="articles">
-      {{> article1}}
-      {{> article2}}
-      {{> article3}}
+      <a target="blank" class="article" href="{{post.a1_url}}">
+        <div class="article-title">
+          {{post.a1_title}}
+        </div>
+      </a>
+
+      <a target="blank" class="article" href="{{post.a2_url}}">
+        <div class="article-title">
+          {{post.a2_title}}
+        </div>
+      </a>
+
+      <a target="blank" class="article" href="{{post.a3_url}}">
+        <div class="article-title">
+          {{post.a3_title}}
+        </div>
+      </a>
     </div>
   </div>
 </div>
@@ -85,7 +100,6 @@
     <div class="article-title">
       Hollywood director: piracy is necessary, and doesn't hurt revenues
     </div>
-
   </a>
 
 </template>
