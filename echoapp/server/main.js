@@ -146,7 +146,7 @@ Meteor.methods({
 
         return comment_id;
     },
-    get_replies: function(post_id) {
-        return PostData.find({ pid : post_id, type : "reply" }, {sort : {rid : 1} }).fetch();
+    get_replies: function(post_id, comment_id) {
+        return PostData.find({ pid : post_id, cid : comment_id, type : "reply" }, {sort : {rid : 1} }).fetch();
     }
 })

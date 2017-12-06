@@ -183,11 +183,14 @@ Template.left_input.events({
 })
 
 Template.comment_pro.onRendered(function() {
-    Meteor.call("get_replies", 0, this.cid, function(err, result) {
+    console.log("cid")
+    console.log(this.data.cid)
+    Meteor.call("get_replies", 0, this.data.cid, function(err, result) {
         if (err) console.warn(err)
 
         var sesh_id = "";
         if (result.length > 0) {
+            console.log(result)
             var sesh_id = "replies_" + result[0].cid
             for (element in result) {
                 element.format_date = format_date(element.time)
@@ -198,19 +201,25 @@ Template.comment_pro.onRendered(function() {
 })
 
 Template.comment_pro.events({
-    'click .reply-button'(event, instance) {
+    'click #reply-button'(event, instance) {
         var post_id = 0
         var user_id = Session.get("username");
         user_id = user_id ? user_id : "Anonymous";
         var comment_id = this.cid;
-        var reply_content = $(".reply-input").val();
+        var reply_content = $("#reply-input-" + this.cid).val();
+        console.log(reply_content)
         // TODO: assert comment_content is not empty
         var timestamp = Date.now();
+        console.log("this.cid")
+        console.log(this.cid)
+        console.log("Reply content")
+        console.log(reply_content)
         Meteor.call("add_reply", user_id, post_id, comment_id, reply_content, timestamp, function(err, result) {
             if (err) console.warn(err)
 
             var post_id = 0
-
+            console.log("result")
+            console.log(result)
             Meteor.call("get_replies", 0, result, function(err, result) {
                 if (err) console.warn(err)
 
