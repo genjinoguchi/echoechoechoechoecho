@@ -46,7 +46,7 @@ a {
     color: white;
 }
 
-.username-input {
+#username-input {
     position: absolute;
     right: 50px;
     margin-right: 45px;
@@ -84,12 +84,17 @@ a {
     line-height: 60px;
     font-size: 20px;
     padding-right: 40px;
+    display: inline-block;
 }
 
 .change {
     font-weight: lighter;
     font-size: 15px;
     display: inline-block;
+    position: absolute;
+    right: 40px;
+    top: 39px;
+    cursor: pointer;
 }
 
 .opinion-background {
@@ -205,7 +210,8 @@ a {
 }
 
 .comment {
-    width: 90%;
+    /*width: 90%;*/
+    width: 40vw;
     height: auto;
     padding:15px 15px 15px 15px;
     /*margin: 10px 10px 10px 10px;*/

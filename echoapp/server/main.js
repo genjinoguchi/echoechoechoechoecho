@@ -121,10 +121,10 @@ Meteor.methods({
     get_reply_rating: function(post_id, comment_id, reply_id) {
         return PostData.find({ pid : post_id, cid : comment_id, rid : reply_id, type : "reply" }).fetch()[0].rating;
     },
-    get_pro_comments: function(post_id) {
+    get_comments_pro: function(post_id) {
         return PostData.find({ pid : post_id, type : "comment", side : "pro"}, { sort : { rating : -1 }}).fetch();
     },
-    get_con_comments: function(post_id) {
+    get_comments_con: function(post_id) {
         return PostData.find({ pid : post_id, type : "comment", side : "con"}, { sort : { rating : -1 }}).fetch();
     },
     add_reply: function(user, post_id, comment_id, reply_content, time) {

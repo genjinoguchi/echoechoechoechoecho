@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    setTimeout(function() {
+        console.log("hello there")
+
     var pickedSide = false;
     var counter = 0;
 
@@ -61,13 +64,31 @@ $(document).ready(function(){
         console.log(curContent);
         console.log(upvoteCount);
         $( this ).text("score: " + upvoteCount);
+
+    });
+
+    $(document).on('click', '.username-button', function() {
+        var username = $("#username-input").val();
+        console.log(username);
+        $("#username-input").remove();
+        $(".username-button").replaceWith("<div class='jenji'> Hi " + username + " <div class='change'>(change)</div></div>");
+        $(".change").toggle();
     });
 
     $(".change").click(function(event) {
         /* Act on the event */
-        $(".jenji").replaceWith("<input class='username-input' type='text' name='' placeholder='type your name'> <button class='username-button' >change</button>");
+        $(".jenji").replaceWith("<input id='username-input' type='text' name='' placeholder='type your name'> <button class='username-button' >change</button>");
+        $(".change").toggle();
     });
 
 
 
+
+    $(".username-button").click(function(event) {
+        /* Act on the event */
+        console.log("asdfasdfsd");
+
+    });
+
+}, 1000)
 })

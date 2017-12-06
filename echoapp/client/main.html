@@ -3,13 +3,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
   <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
-  {{> home}}
+
 </body>
+
+<template name="new_post">
+ <div class="all-blue">
+  <div class="new-post-title">
+    What is your opinion?
+  </div>
+  <form onsubmit="">
+    <textarea class="new_post" id="headline-id" name="headline" placeholder="Headline"></textarea>
+    <textarea id="description-id" name="description" placeholder="Short description of news story"></textarea>
+    <textarea id="a1-title-id" name="a1-title" placeholder="Title of Article 1"></textarea>
+    <textarea id="a1-url-id" name="a1-url" placeholder="Link to Article 1"></textarea>
+    <textarea id="a2-title-id" name="a2-title" placeholder="Title of Article 2"></textarea>
+    <textarea id="a2-url-id" name="a2-url" placeholder="Link to Article 2"></textarea>
+    <textarea id="a3-title-id" name="a3-title" placeholder="Title of Article 3"></textarea>
+    <textarea id="a3-url-id" name="a3-url" placeholder="Link to Article 3"></textarea>
+    <textarea id="disc-q-id" name="disc-question" placeholder="Relevant discussion question"></textarea>
+    <button class="new-post-submit" type="submit">submit</button>
+  </form>
+</div>
+</template>
 
 <template name="home">
   {{> navbar}}
@@ -31,9 +51,7 @@
     <div class="tagline">
       Got discourse? Discuss!
     </div>
-    <div class="jenji">
-      Hi Jenji <div class="change">(change)</div>
-    </div>
+    <div class="jenji">Hi Jenji </div> <div class="change">(change)</div>
   </div>
 </template>
 
@@ -128,6 +146,7 @@
 </template>
 
 
+
 <!-- comments -->
 <template name="comments">
   <div class="container-fluid">
@@ -135,7 +154,9 @@
 
       <div class="col-md-6 green-background">
         <div class="float-right">
-          {{> comment_pro}}
+            {{#each comments_pro}}
+                {{> comment_pro}}
+            {{/each}}
         </div>
       </div>
       <div class="col-md-6 float-left red-background">
@@ -151,15 +172,15 @@
 <template name="comment_pro">
   <div class="card comment pro">
     <div class="username">
-      Gemma
+      {{this.nickname}}
     </div>
     <div class="score pro-score">score: 0</div>
     <div class="comment-text">
-      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+      {{this.content}}
     </div>
     <div class="timestamp">
-      5 minutes ago
-      <div class="reply 0">
+      {{this.format_date}}
+      <div class="reply {{this.cid}}">
         reply
       </div>
     </div>
@@ -169,7 +190,7 @@
 
   <div id="reply-marker"></div>
 
-  <div class="sub-reply" id="0">
+  <div class="sub-reply" id="{{this.cid}}">
     <div class="card input-card">
       <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
       <button class="reply-button">reply</button>
@@ -182,14 +203,14 @@
 <template name="comment_con">
   <div class="card comment con">
     <div class="username">
-      Gemma
+      {{this.nickname}}
     </div>
     <div class="score con-score">score: 0</div>
     <div class="comment-text">
-      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+        {{this.content}}
     </div>
     <div class="timestamp">
-      5 minutes ago
+        {{this.format_date}}
       <div class="reply 1">
         reply
       </div>
@@ -208,19 +229,21 @@
   </div>
 </template>
 
+
+
 <!-- pro reply -->
 <template name="reply_comment_pro">
   <div class="card comment pro reply-card">
     <div class="username">
-      Gemma
+      nick
     </div>
     <div class="score pro-score">score: 0</div>
     <div class="comment-text">
-      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+        content
     </div>
     <div class="timestamp">
-      5 minutes ago
-      <div class="reply 0">
+      time
+      <div class="reply {{this.cid}}">
         reply
       </div>
     </div>
@@ -231,21 +254,20 @@
 <template name="reply_comment_con">
   <div class="card comment con reply-card">
     <div class="username">
-      Gemma
+        nick
     </div>
     <div class="score con-score">score: 0</div>
     <div class="comment-text">
-      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+        content
     </div>
     <div class="timestamp">
-      5 minutes ago
+      time
       <div class="reply 1">
         reply
       </div>
     </div>
   </div>
 </template>
-
 
 
 
@@ -258,7 +280,7 @@
             {{> blocked_input}}
           </div>
           <div class="left-input">
-            {{> input}}
+            {{> left_input}}
           </div>
         </div>
         <div class="col-md-6">
@@ -266,7 +288,7 @@
             {{> blocked_input}}
           </div>
           <div class="right-input">
-            {{> input}}
+            {{> right_input}}
           </div>
         </div>
       </div>
@@ -274,10 +296,17 @@
   </div>
 </template>
 
-<template name="input">
+<template name="left_input">
   <div class="card input-card">
-    <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
-    <button class="reply-button">reply</button>
+    <textarea id="left_input_area" type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+    <button id="left_input_button" class="reply-button">reply</button>
+  </div>
+</template>
+
+<template name="right_input">
+  <div class="card input-card">
+    <textarea id="right_input_area" type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+    <button id="right_input_button" class="reply-button">reply</button>
   </div>
 </template>
 
