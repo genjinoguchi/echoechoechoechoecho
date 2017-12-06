@@ -84,12 +84,17 @@ a {
     line-height: 60px;
     font-size: 20px;
     padding-right: 40px;
+    display: inline-block;
 }
 
 .change {
     font-weight: lighter;
     font-size: 15px;
     display: inline-block;
+    position: absolute;
+    right: 40px;
+    top: 39px;
+    cursor: pointer;
 }
 
 .opinion-background {
