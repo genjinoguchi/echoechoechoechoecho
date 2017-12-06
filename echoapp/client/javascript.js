@@ -35,7 +35,11 @@ $(document).ready(function(){
     });
 
     $(".score").click(function(event) {
-        // $( this ).text($(this).html(Some text and markup));
+        var curContent = $(this).html();
+        var upvoteCount = parseInt(curContent.split(" ")[1]) + 1;
+        console.log(curContent);
+        console.log(upvoteCount);
+        $( this ).text("score: " + upvoteCount);
     });
 
 })
