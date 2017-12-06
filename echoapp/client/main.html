@@ -160,7 +160,9 @@
         </div>
       </div>
       <div class="col-md-6 float-left red-background">
-        {{> comment_con}}
+          {{#each comments_con}}
+            {{> comment_con}}
+          {{/each}}
       </div>
 
     </div>
@@ -186,13 +188,15 @@
     </div>
   </div>
 
-  {{> reply_comment_pro}}
+  {{#each replies}}
+    {{> reply_comment_pro}}
+  {{/each}}
 
   <div id="reply-marker"></div>
 
   <div class="sub-reply" id="{{this.cid}}">
     <div class="card input-card">
-      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+      <textarea type="text" class="reply-input" placeholder="write why you think so!"></textarea>
       <button class="reply-button">reply</button>
     </div>
   </div>
@@ -223,7 +227,7 @@
 
   <div class="sub-reply" id="1">
     <div class="card input-card">
-      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+      <textarea type="text" name="reply-input" placeholder="write why you think so!"></textarea>
       <button class="reply-button">reply</button>
     </div>
   </div>
@@ -235,14 +239,14 @@
 <template name="reply_comment_pro">
   <div class="card comment pro reply-card">
     <div class="username">
-      nick
+        {{this.nickname}}
     </div>
     <div class="score pro-score">score: 0</div>
     <div class="comment-text">
-        content
+        {{this.content}}
     </div>
     <div class="timestamp">
-      time
+      {{this.format_date}}
       <div class="reply {{this.cid}}">
         reply
       </div>

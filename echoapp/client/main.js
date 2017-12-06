@@ -44,19 +44,14 @@ Template.home.onRendered(function() {
     Session.set("username", "test")
     Meteor.call("get_current_post", function(err, result) {
         if (err) console.warn(err);
-        console.log(result)
         Session.set("post", result);
     })
     Meteor.call("get_comments_pro", 0, function(err, result) {
         if (err) console.warn(err);
-        console.log("comments_pro")
-        console.log(result)
         Session.set("comments_pro", result);
     })
     Meteor.call("get_comments_con", 0, function(err, result) {
         if (err) console.warn(err);
-        console.log("comments_con")
-        console.log(result)
         Session.set("comments_con", result);
     })
 
@@ -72,7 +67,7 @@ Template.home.onRendered(function() {
 
 Template.home.helpers({
     testing() {
-        console.log("hello")
+        //console.log("hello")
     }
 })
 
@@ -96,7 +91,7 @@ Template.new_post.events({
 })
 
 Template.comments.onRendered(function() {
-    console.log("Rendered!")
+    //console.log("Rendered!")
     /*
     Tracker.autorun(() => {
         Meteor.subscribe('post', { 'post': Session.get('post') }),
@@ -124,7 +119,7 @@ Template.comments.onRendered(function() {
 
 Template.comments.helpers({
     testing() {
-        console.log("testing")
+        //console.log("testing")
     },
     post() {
         Meteor.call("get_current_post", function(err, result) {
@@ -166,10 +161,10 @@ Template.left_input.events({
         var post_id = 0
         var user_id = Session.get("username")
         user_id = user_id ? user_id : "Anonymous";
-        var comment_content = $("#left-input-area").val();
+        var comment_content = $("#left_input_area").val();
         var timestamp = Date.now();
-        console.log(comment_content)
-        console.log(post_id + user_id + comment_content)
+        //console.log(comment_content)
+        //console.log(post_id + user_id + comment_content)
         Meteor.call("add_comment", user_id, post_id, "pro", comment_content, timestamp, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
@@ -177,7 +172,6 @@ Template.left_input.events({
             var post_id = 0
             Meteor.call("get_comments_pro", post_id, function(err, result) {
                 if (err) console.warn(err);
-                console.log(result);
                 result.forEach(function(element) {
                     element.format_date = format_date(element.time)
                 })
@@ -188,16 +182,28 @@ Template.left_input.events({
     }
 })
 
+Template.comment_pro.onRendered(function() {
+    Meteor.call("get_replies", 0, this.cid, function(err, result) {
+        if (err) console.warn(err)
+
+        var sesh_id = "";
+        if (result.length > 0) {
+            var sesh_id = "replies_" + result[0].cid
+            for (element in result) {
+                element.format_date = format_date(element.time)
+            }
+            Session.set(sesh_id, result)
+        }
+    })
+})
+
 Template.comment_pro.events({
-    'click .reply-reply-button'(event, instance) {
-        console.log("reply reply")
-        var post_id = Session.get("post").pid;
-        var user_id = $(".reply-username-input").val();
+    'click .reply-button'(event, instance) {
+        var post_id = 0
+        var user_id = Session.get("username");
         user_id = user_id ? user_id : "Anonymous";
         var comment_id = this.cid;
         var reply_content = $(".reply-input").val();
-        console.log("sending reply content")
-        console.log(reply_content)
         // TODO: assert comment_content is not empty
         var timestamp = Date.now();
         Meteor.call("add_reply", user_id, post_id, comment_id, reply_content, timestamp, function(err, result) {
@@ -205,35 +211,34 @@ Template.comment_pro.events({
 
             var post_id = 0
 
-            Meteor.call("get_comments_pro", post_id, function(err, result) {
-                if (err) console.warn(err);
-                console.log(result);
+            Meteor.call("get_replies", 0, result, function(err, result) {
+                if (err) console.warn(err)
 
-                for (element in result) {
-                    element.format_date = format_date(element.time)
+                var sesh_id = "";
+                if (result.length > 0) {
+                    var sesh_id = "replies_" + result[0].cid
+                    for (element in result) {
+                        element.format_date = format_date(element.time)
+                    }
+                    Session.set(sesh_id, result)
                 }
-                Session.set("comments", result);
             })
+
+            // Meteor.call("get_comments_pro", post_id, function(err, result) {
+            //     if (err) console.warn(err);
+            //
+            //     for (element in result) {
+            //         element.format_date = format_date(element.time)
+            //     }
+            //     Session.set("comments", result);
+            // })
         })
+        $(".reply-input").val("");
     }
 })
 
 Template.comment_pro.helpers({
     replies() {
-        console.log("replies loading")
-        console.log(this.pid)
-        console.log(this.cid)
-        Meteor.call("get_replies", this.pid, this.cid, function(err, result) {
-            if (err) console.warn(err)
-
-            var sesh_id = "";
-            if (result.length > 0) {
-                var sesh_id = "replies_" + result[0].cid
-                console.log(result)
-                Session.set(sesh_id, result)
-            }
-        })
-
         var sesh_id = "replies_" + this.cid
         if (Session.get(sesh_id)) {
             return Session.get(sesh_id)
@@ -250,10 +255,8 @@ Template.right_input.events({
         var post_id = 0
         var user_id = Session.get("username")
         user_id = user_id ? user_id : "Anonymous";
-        var comment_content = $("#right-input-area").val();
+        var comment_content = $("#right_input_area").val();
         var timestamp = Date.now();
-        console.log(comment_content)
-        console.log(post_id + user_id + comment_content)
         Meteor.call("add_comment", user_id, post_id, "con", comment_content, timestamp, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
@@ -261,7 +264,6 @@ Template.right_input.events({
             var post_id = 0
             Meteor.call("get_comments_con", post_id, function(err, result) {
                 if (err) console.warn(err);
-                console.log(result);
                 result.forEach(function(element) {
                     element.format_date = format_date(element.time)
                 })
@@ -274,14 +276,11 @@ Template.right_input.events({
 
 Template.comment_con.events({
     'click .reply-reply-button'(event, instance) {
-        console.log("reply reply")
         var post_id = Session.get("post").pid;
         var user_id = $(".reply-username-input").val();
         user_id = user_id ? user_id : "Anonymous";
         var comment_id = this.cid;
         var reply_content = $(".reply-input").val();
-        console.log("sending reply content")
-        console.log(reply_content)
         // TODO: assert comment_content is not empty
         var timestamp = Date.now();
         Meteor.call("add_reply", user_id, post_id, comment_id, reply_content, timestamp, function(err, result) {
@@ -291,7 +290,6 @@ Template.comment_con.events({
 
             Meteor.call("get_comments_pro", post_id, function(err, result) {
                 if (err) console.warn(err);
-                console.log(result);
 
                 for (element in result) {
                     element.format_date = format_date(element.time)
@@ -304,16 +302,12 @@ Template.comment_con.events({
 
 Template.comment_con.helpers({
     replies() {
-        console.log("replies loading")
-        console.log(this.pid)
-        console.log(this.cid)
         Meteor.call("get_replies", this.pid, this.cid, function(err, result) {
             if (err) console.warn(err)
 
             var sesh_id = "";
             if (result.length > 0) {
                 var sesh_id = "replies_" + result[0].cid
-                console.log(result)
                 Session.set(sesh_id, result)
             }
         })
