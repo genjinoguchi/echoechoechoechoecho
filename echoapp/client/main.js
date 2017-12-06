@@ -381,3 +381,11 @@ Template.hello.events({
   },
 });
 */
+
+Template.navbar.events({
+    'click #username-button'(event, instance) {
+        var username = $("#username-input").val();
+        Session.set("username", username);
+    }
+
+});
