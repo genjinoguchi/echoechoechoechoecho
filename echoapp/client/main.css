@@ -32,11 +32,41 @@ textarea {
 button {
     border-radius: 5px;
 }
+a {
+  color: inherit !important; /* blue colors for links too */
+  text-decoration: inherit !important; /* no underline */
+}
+
 
 .nav {
     width: 100%;
     height: 60px;
     background-color: var(--main-blue);
+    color: white;
+}
+
+.logo {
+    line-height: 60px;
+    font-size: 30px;
+    padding-left: 30px;
+}
+
+.tagline {
+    color: white;
+    line-height: 70px;
+    font-size: 17px
+    font-weight: lighter;
+    padding-left: 40px;
+
+}
+
+.jenji {
+    position: absolute;
+    right: 0;
+    float: right;
+    line-height: 60px;
+    font-size: 20px;
+    padding-right: 40px;
 }
 
 .opinion-background {
@@ -107,6 +137,10 @@ button {
     display: inline-block;
 }
 
+.article:hover {
+    background-color: #D1D1D1;
+}
+
 .article-title {
     font-size: 18px;
 }
@@ -121,6 +155,7 @@ button {
     height: 100px;
     margin: 20px auto;
     border-color: transparent;
+    cursor: pointer;
 }
 
 .agree-disagree {
@@ -147,10 +182,11 @@ button {
 }
 
 .comment {
-    width: 80%;
+    width: 90%;
     height: auto;
     padding:15px 15px 15px 15px;
-    margin: 10px 10px 10px 10px;
+    /*margin: 10px 10px 10px 10px;*/
+    margin-top: 15px;
     display: inline-block;
     float: right;
 
@@ -173,6 +209,11 @@ button {
     float: right;
     color: var(--color-text);
     font-weight: bold;
+    cursor: pointer;
+}
+
+.reply-active {
+    color: var(--main-blue) !important;
 }
 
 .score {
@@ -200,7 +241,6 @@ button {
 }
 
 .reply-background {
-    margin-top: 20px;
     width: 100%;
     height: auto;
     background-color: #EEEEEE;
@@ -238,6 +278,7 @@ button {
 .blocked-text {
     display: table-cell;
     vertical-align: middle;
+    line-height: 90%;
 }
 
 textarea {
@@ -269,8 +310,29 @@ textarea {
 
 .red-background {
     background-color: #f2dedf;
+    padding-bottom: 20px;
 }
 
 .green-background {
     background-color: #d3eddd;
+    padding-bottom: 20px;
+}
+
+.sub-reply {
+    width: 60% !important;
+    float: right;
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+.hidden-content {
+    text-align: center;
+    font-size: 25px;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    top: 1000px;
+    z-index: 100;
 }

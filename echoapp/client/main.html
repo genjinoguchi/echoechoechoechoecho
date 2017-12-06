@@ -3,6 +3,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </head>
 
 
@@ -14,13 +16,25 @@
   {{> navbar}}
   {{> opinion_of_the_day}}
   {{> agree_disagree}}
-  {{> comments}}
-  {{> reply}}
+  {{> content_hidden}}
+  <div class="blur">
+    {{> comments}}
+    {{> reply}}
+  </div>
 </template>
 
 <!-- navbar -->
 <template name="navbar">
   <div class="nav">
+    <div class="logo">
+      Socratic.
+    </div>
+    <div class="tagline">
+      Got discourse? Discuss!
+    </div>
+    <div class="jenji">
+      hi Jenji
+    </div>
   </div>
 </template>
 
@@ -51,36 +65,37 @@
 
 <!-- articles -->
 <template name="article1">
-  <div class="article">
+  <a target="blank" class="article" href="https://www.forbes.com/forbes/welcome/?toURL=https://www.forbes.com/sites/erikkain/2012/01/21/does-online-piracy-hurt-the-economy-a-look-at-the-numbers/&refURL=https://www.google.com/&referrer=https://www.google.com/">
     <div class="article-title">
       Does Online Piracy Hurt The Entertainment Industry?
     </div>
     <div class="article-source">
       Forbes
     </div>
-  </div>
+  </a>
 </template>
 
 <template name="article2">
-  <div class="article">
+  <a target="blank" class=" article" href="https://www.scientificamerican.com/article/does-digital-piracy-really/">
     <div class="article-title">
       Does Digital Piracy Really Hurt Movies?
     </div>
     <div class="article-source">
       Scientific American
     </div>
-  </div>
+  </a>
 </template>
 
 <template name="article3">
-  <div class="article">
+  <a target="blank" class="article" href="https://www.theguardian.com/technology/2014/jul/10/hollywood-director-piracy-is-necessary-and-doesnt-hurt-revenues">
     <div class="article-title">
       Hollywood director: piracy is necessary, and doesn't hurt revenues
     </div>
     <div class="article-source">
       The guardian
     </div>
-  </div>
+  </a>
+
 </template>
 
 
@@ -89,15 +104,15 @@
   <div class="container-fluid agree_disagree">
     <div class="row">
       <div class="col-md-6 green-background">
-        <div class="card agreement-card agree">
-          <div class="agree-disagree-text">
+        <a class="card agreement-card agree">
+          <div class="agree-disagree-text" id="agree-button">
             I agree
           </div>
-        </div>
+        </a>
       </div>
       <div class="col-md-6 red-background">
         <div class="card agreement-card disagree">
-          <div class="agree-disagree-text">
+          <div class="agree-disagree-text" id="disagree-button">
             I disagree
           </div>
         </div>
@@ -114,23 +129,24 @@
       <!-- <div class="col-md-1"></div> -->
       <div class="col-md-6 green-background">
         <div class="float-right">
-          {{> comment_pro}}
-          {{> comment_pro}}
+          <!-- {{> comment_pro}} -->
+          <!-- {{> comment_pro}} -->
           {{> reply_comment_pro}}
+
         </div>
 
       </div>
       <div class="col-md-6 float-left red-background">
+<!--         {{> comment_con}}
         {{> comment_con}}
-        {{> comment_con}}
-        {{> reply_comment_con}}
+        {{> reply_comment_con}} -->
       </div>
       <!-- <div class="col-md-1"></div> -->
     </div>
   </div>
 </template>
 
-
+<!-- comment pro -->
 <template name="comment_pro">
   <div class="card comment pro">
     <div class="username">
@@ -144,11 +160,19 @@
     </div>
     <div class="timestamp">
       5 minutes ago
-      <div class="reply">
+      <div class="reply" id="0">
         reply
       </div>
     </div>
   </div>
+
+  <div class="sub-reply 0">
+    <div class="card input-card">
+      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+      <button class="reply-button">reply</button>
+    </div>
+  </div>
+
 </template>
 
 <template name="reply_comment_pro">
@@ -164,12 +188,43 @@
     </div>
     <div class="timestamp">
       5 minutes ago
-      <div class="reply">
+      <div class="reply" id="0">
         reply
       </div>
     </div>
   </div>
+
+  <div class="sub-reply 0" >
+    <div class="card input-card">
+      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+      <button class="reply-button">reply</button>
+    </div>
+  </div>
+
 </template>
+
+<!--
+<template name="reply_comment_pro">
+  <a href="">
+    <div class="card comment pro reply-card">
+      <div class="username">
+        Gemma
+      </div>
+      <div class="score pro-score">
+        score hidden
+      </div>
+      <div class="comment-text">
+        I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+      </div>
+      <div class="timestamp">
+        5 minutes ago
+        <div class="reply" id="reply-0">
+          reply
+        </div>
+      </div>
+    </div>
+  </a>
+</template> -->
 
 <template name="reply_comment_con">
   <div class="card comment con reply-card">
@@ -190,7 +245,6 @@
     </div>
   </div>
 </template>
-
 
 <template name="comment_con">
   <div class="card comment con">
@@ -239,5 +293,11 @@
     <div class="blocked-text">
       Sorry, you can’t reply here since you agreed.
     </div>
+  </div>
+</template>
+
+<template name="content_hidden">
+  <div class="hidden-content">
+    You can't see this content until you vote!
   </div>
 </template>
