@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var pickedSide = false;
     var counter = 0;
 
     $(".sub-reply").hide();
@@ -18,6 +19,11 @@ $(document).ready(function(){
         $(".hidden-content").hide();
         $(".left-input").show();
         $(".right-blocked").show();
+
+        $(".con-score").html("score hidden");
+        $(".agreement-card").hide('slow/400/fast', function() {
+
+        });
     });
 
     $("#disagree-button").click(function(event) {
@@ -31,6 +37,11 @@ $(document).ready(function(){
         $(".hidden-content").hide();
         $(".right-input").show();
         $(".left-blocked").show();
+
+        $(".pro-score").html("score hidden");
+        $(".agreement-card").hide('slow/400/fast', function() {
+
+        });
     });
 
     $(".reply").click(function(event) {
