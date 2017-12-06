@@ -41,7 +41,6 @@ import './main.html';
 // })
 
 Template.home.onRendered(function() {
-    Session.set("username", "test")
     Meteor.call("get_current_post", function(err, result) {
         if (err) console.warn(err);
         Session.set("post", result);

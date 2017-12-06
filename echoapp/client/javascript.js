@@ -24,9 +24,8 @@ $(document).ready(function(){
             $(".right-blocked").show();
             $(".pro-score").html("score hidden");
 
-            $(".agreement-card").hide('slow/400/fast', function() {
-
-            });
+            $(".agreement-card").hide('slow/400/fast', function() {});
+            $(".pro-upvote").hide();
         });
 
         $("#disagree-button").click(function(event) {
@@ -43,7 +42,7 @@ $(document).ready(function(){
 
             $(".con-score").html("score hidden");
             $(".agreement-card").hide('slow/400/fast', function() {
-
+            $(".con-upvote").hide();
             });
         });
 
