@@ -8,7 +8,12 @@ $(document).ready(function(){
     $(".right-input").hide();
 
     $("#agree-button").click(function(event) {
-        /* Act on the event */
+        $(".sub-reply").hide();
+        $(".left-blocked").hide();
+        $(".right-blocked").hide();
+        $(".left-input").hide();
+        $(".right-input").hide();
+
         $(".blur").toggleClass('blur');
         $(".hidden-content").hide();
         $(".left-input").show();
@@ -16,7 +21,12 @@ $(document).ready(function(){
     });
 
     $("#disagree-button").click(function(event) {
-        /* Act on the event */
+        $(".sub-reply").hide();
+        $(".left-blocked").hide();
+        $(".right-blocked").hide();
+        $(".left-input").hide();
+        $(".right-input").hide();
+
         $(".blur").toggleClass('blur');
         $(".hidden-content").hide();
         $(".right-input").show();
@@ -28,7 +38,7 @@ $(document).ready(function(){
         console.log("hello");
         var cls = $(event.target).attr('class').split(" ")[1];
         console.log(cls);
-        // $(".reply").hide();
+
         $("#" + cls.toString()).toggle();
 
         // console.log($(this).attr('id'));
