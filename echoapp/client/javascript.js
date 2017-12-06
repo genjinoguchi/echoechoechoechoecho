@@ -19,8 +19,8 @@ $(document).ready(function(){
         $(".hidden-content").hide();
         $(".left-input").show();
         $(".right-blocked").show();
+        $(".pro-score").html("score hidden");
 
-        $(".con-score").html("score hidden");
         $(".agreement-card").hide('slow/400/fast', function() {
 
         });
@@ -38,7 +38,7 @@ $(document).ready(function(){
         $(".right-input").show();
         $(".left-blocked").show();
 
-        $(".pro-score").html("score hidden");
+        $(".con-score").html("score hidden");
         $(".agreement-card").hide('slow/400/fast', function() {
 
         });
@@ -65,7 +65,9 @@ $(document).ready(function(){
 
     $(".change").click(function(event) {
         /* Act on the event */
-        $(".jenji").replaceWith("<input class='username-input' type='text' name='' placeholder='type your name'> <button>change</button>");
+        $(".jenji").replaceWith("<input class='username-input' type='text' name='' placeholder='type your name'> <button class='username-button' >change</button>");
     });
+
+
 
 })
