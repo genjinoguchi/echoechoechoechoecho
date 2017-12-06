@@ -4,7 +4,8 @@
 }
 
 body {
-    font-family: 'Space Mono', monospace;
+    /*font-family: 'Space Mono', monospace;*/
+    font-family: sans-serif;
     background-color: #FEFEFE;
     color: var(--color-text);
 }
@@ -135,10 +136,6 @@ a {
     padding:30px 20px 30px 20px;
     text-align: center;
     display: inline-block;
-}
-
-.article:hover {
-    background-color: #D1D1D1;
 }
 
 .article-title {
@@ -320,6 +317,7 @@ textarea {
 
 .sub-reply {
     width: 60% !important;
+    width: 100%;
     float: right;
 }
 

@@ -7,7 +7,6 @@
   <script type="text/javascript" src="main.js"></script>
 </head>
 
-
 <body>
   {{> home}}
 </body>
@@ -33,7 +32,7 @@
       Got discourse? Discuss!
     </div>
     <div class="jenji">
-      hi Jenji
+      Hi Jenji
     </div>
   </div>
 </template>
@@ -129,17 +128,12 @@
       <!-- <div class="col-md-1"></div> -->
       <div class="col-md-6 green-background">
         <div class="float-right">
-          <!-- {{> comment_pro}} -->
-          <!-- {{> comment_pro}} -->
-          {{> reply_comment_pro}}
-
+          {{> comment_pro}}
         </div>
-
       </div>
       <div class="col-md-6 float-left red-background">
-<!--         {{> comment_con}}
         {{> comment_con}}
-        {{> reply_comment_con}} -->
+        <!-- {{> reply_comment_con}} -->
       </div>
       <!-- <div class="col-md-1"></div> -->
     </div>
@@ -160,13 +154,17 @@
     </div>
     <div class="timestamp">
       5 minutes ago
-      <div class="reply" id="0">
+      <div class="reply 0">
         reply
       </div>
     </div>
   </div>
 
-  <div class="sub-reply 0">
+  {{> reply_comment_pro}}
+
+  <div id="reply-marker"></div>
+
+  <div class="sub-reply" id="0">
     <div class="card input-card">
       <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
       <button class="reply-button">reply</button>
@@ -175,6 +173,7 @@
 
 </template>
 
+<!-- pro reply -->
 <template name="reply_comment_pro">
   <div class="card comment pro reply-card">
     <div class="username">
@@ -188,64 +187,14 @@
     </div>
     <div class="timestamp">
       5 minutes ago
-      <div class="reply" id="0">
-        reply
-      </div>
-    </div>
-  </div>
-
-  <div class="sub-reply 0" >
-    <div class="card input-card">
-      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
-      <button class="reply-button">reply</button>
-    </div>
-  </div>
-
-</template>
-
-<!--
-<template name="reply_comment_pro">
-  <a href="">
-    <div class="card comment pro reply-card">
-      <div class="username">
-        Gemma
-      </div>
-      <div class="score pro-score">
-        score hidden
-      </div>
-      <div class="comment-text">
-        I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
-      </div>
-      <div class="timestamp">
-        5 minutes ago
-        <div class="reply" id="reply-0">
-          reply
-        </div>
-      </div>
-    </div>
-  </a>
-</template> -->
-
-<template name="reply_comment_con">
-  <div class="card comment con reply-card">
-    <div class="username">
-      Gemma
-    </div>
-    <div class="score pro-score">
-      score hidden
-    </div>
-    <div class="comment-text">
-      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
-    </div>
-    <div class="timestamp">
-      5 minutes ago
-      <div class="reply">
+      <div class="reply 0">
         reply
       </div>
     </div>
   </div>
 </template>
 
+<!-- comment con -->
 <template name="comment_con">
   <div class="card comment con">
     <div class="username">
@@ -259,9 +208,20 @@
     </div>
     <div class="timestamp">
       5 minutes ago
-      <div class="reply">
+      <div class="reply 1">
         reply
       </div>
+    </div>
+  </div>
+
+  {{> reply_comment_con}}
+
+  <div id="reply-marker"></div>
+
+  <div class="sub-reply" id="1">
+    <div class="card input-card">
+      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+      <button class="reply-button">reply</button>
     </div>
   </div>
 </template>
@@ -271,10 +231,20 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
-          {{> blocked_input}}
+          <div class="left-blocked">
+            {{> blocked_input}}
+          </div>
+          <div class="left-input">
+            {{> input}}
+          </div>
         </div>
         <div class="col-md-6">
-          {{> input}}
+          <div class="right-blocked">
+            {{> blocked_input}}
+          </div>
+          <div class="right-input">
+            {{> input}}
+          </div>
         </div>
       </div>
     </div>
@@ -291,7 +261,7 @@
 <template name="blocked_input">
   <div class="card blocked-card">
     <div class="blocked-text">
-      Sorry, you can’t reply here since you agreed.
+      Sorry, you can’t reply here since you picked the other side.
     </div>
   </div>
 </template>
@@ -301,3 +271,9 @@
     You can't see this content until you vote!
   </div>
 </template>
+
+<!-- <template name="log_in">
+  <input type="text" name="username">
+  <input type="text" name="password">
+  <button>log in</button>
+</template> -->
