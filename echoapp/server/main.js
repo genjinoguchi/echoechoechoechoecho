@@ -117,6 +117,8 @@ Meteor.methods({
     },
     upvote_reply: function(post_id, comment_id, reply_id) {
         PostData.update({ pid : post_id, cid : comment_id, rid : reply_id, type : "reply" }, { $inc : { rating : 1 } })
+
+        return comment_id
     },
     get_reply_rating: function(post_id, comment_id, reply_id) {
         return PostData.find({ pid : post_id, cid : comment_id, rid : reply_id, type : "reply" }).fetch()[0].rating;
