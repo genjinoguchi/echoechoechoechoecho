@@ -46,6 +46,14 @@ a {
     color: white;
 }
 
+.username-input {
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    margin-top: 15px;
+    float: right;
+}
+
 .logo {
     line-height: 60px;
     font-size: 30px;
@@ -68,6 +76,12 @@ a {
     line-height: 60px;
     font-size: 20px;
     padding-right: 40px;
+}
+
+.change {
+    font-weight: lighter;
+    font-size: 15px;
+    display: inline-block;
 }
 
 .opinion-background {

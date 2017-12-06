@@ -63,4 +63,9 @@ $(document).ready(function(){
         $( this ).text("score: " + upvoteCount);
     });
 
+    $(".change").click(function(event) {
+        /* Act on the event */
+        $(".jenji").replaceWith("<input class='username-input' type='text' name='' placeholder='type your name'> <button>change</button>");
+    });
+
 })
