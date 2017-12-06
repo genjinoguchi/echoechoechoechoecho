@@ -3,7 +3,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
   <script type="text/javascript" src="main.js"></script>
 </head>
 
@@ -146,55 +146,53 @@
 </template>
 
 
+
 <!-- comments -->
 <template name="comments">
   <div class="container-fluid">
     <div class="row">
+
       <div class="col-md-6 green-background">
         <div class="float-right">
-          {{#each comments_pro}}
-            {{> comment_pro}}
-          {{/each}}
+            {{#each comments_pro}}
+                {{> comment_pro}}
+            {{/each}}
         </div>
       </div>
       <div class="col-md-6 float-left red-background">
-        {{#each comments_con}}
-            {{> comment_con}}
-        {{/each}}
+        {{> comment_con}}
       </div>
 
     </div>
   </div>
 </template>
 
+
 <!-- comment pro -->
 <template name="comment_pro">
-
   <div class="card comment pro">
     <div class="username">
       {{this.nickname}}
     </div>
-    <div class="score pro-score">score: {{this.rating}}</div>
+    <div class="score pro-score">score: 0</div>
     <div class="comment-text">
       {{this.content}}
     </div>
     <div class="timestamp">
-      {{this.time}}
-      <div class="reply 0">
+      {{this.format_date}}
+      <div class="reply {{this.cid}}">
         reply
       </div>
     </div>
   </div>
 
-  {{#each replies}}
-    {{> reply_comment_pro}}
-  {{/each}}
+  {{> reply_comment_pro}}
 
   <div id="reply-marker"></div>
 
-  <div class="sub-reply" id="0">
+  <div class="sub-reply" id="{{this.cid}}">
     <div class="card input-card">
-      <textarea type="text" name="reply-input" placeholder="write why you think so!"></textarea>
+      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
       <button class="reply-button">reply</button>
     </div>
   </div>
@@ -207,45 +205,45 @@
     <div class="username">
       {{this.nickname}}
     </div>
-    <div class="score pro-score">score: {{this.rating}}</div>
+    <div class="score con-score">score: 0</div>
     <div class="comment-text">
-      {{this.content}}
+        {{this.content}}
     </div>
     <div class="timestamp">
-      {{this.time}}
+        {{this.format_date}}
       <div class="reply 1">
         reply
       </div>
     </div>
   </div>
 
-  {{#each replies}}
-    {{> reply_comment_pro}}
-  {{/each}}
+  {{> reply_comment_con}}
 
   <div id="reply-marker"></div>
 
   <div class="sub-reply" id="1">
     <div class="card input-card">
-      <textarea type="text" name="reply-input" placeholder="write why you think so!"></textarea>
+      <textarea type="text" name="repy-input" placeholder="write why you think so!"></textarea>
       <button class="reply-button">reply</button>
     </div>
   </div>
 </template>
 
+
+
 <!-- pro reply -->
 <template name="reply_comment_pro">
   <div class="card comment pro reply-card">
     <div class="username">
-      {{this.nickname}}
+      nick
     </div>
-    <div class="score pro-score">score: {{this.rating}}</div>
+    <div class="score pro-score">score: 0</div>
     <div class="comment-text">
-        {{this.content}}
+        content
     </div>
     <div class="timestamp">
-      {{this.format_time}}
-      <div class="reply 0">
+      time
+      <div class="reply {{this.cid}}">
         reply
       </div>
     </div>
@@ -256,21 +254,20 @@
 <template name="reply_comment_con">
   <div class="card comment con reply-card">
     <div class="username">
-        {{this.nickname}}
+        nick
     </div>
-    <div class="score con-score">score: {{this.rating}}</div>
+    <div class="score con-score">score: 0</div>
     <div class="comment-text">
-        {{this.content}}
+        content
     </div>
     <div class="timestamp">
-      {{this.format_time}}
+      time
       <div class="reply 1">
         reply
       </div>
     </div>
   </div>
 </template>
-
 
 
 

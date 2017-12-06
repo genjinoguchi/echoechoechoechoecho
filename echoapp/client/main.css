@@ -210,7 +210,8 @@ a {
 }
 
 .comment {
-    width: 90%;
+    /*width: 90%;*/
+    width: 40vw;
     height: auto;
     padding:15px 15px 15px 15px;
     /*margin: 10px 10px 10px 10px;*/

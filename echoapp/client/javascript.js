@@ -1,4 +1,7 @@
 $(document).ready(function(){
+    setTimeout(function() {
+        console.log("hello there")
+
     var pickedSide = false;
     var counter = 0;
 
@@ -87,4 +90,5 @@ $(document).ready(function(){
 
     });
 
+}, 1000)
 })
