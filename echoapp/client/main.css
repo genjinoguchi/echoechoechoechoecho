@@ -367,3 +367,20 @@ textarea {
     top: 1000px;
     z-index: 100;
 }
+
+.upvote {
+    position: relative;
+    left: -60px;
+    font-size: 30px;
+    top: -10px;
+    line-height: 0px;
+    cursor: pointer;
+}
+
+.upvote:hover {
+    color: white;
+}
+
+.white {
+    color: white !important;
+}

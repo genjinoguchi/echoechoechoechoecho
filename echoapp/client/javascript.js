@@ -90,5 +90,10 @@ $(document).ready(function(){
 
     });
 
+    $(".upvote").click(function(event) {
+        console.log('click...');
+        $(this).remove();
+    });
+
 }, 1000)
 })
