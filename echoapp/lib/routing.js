@@ -3,7 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 FlowRouter.route("/", {
     name: "Home",
     action(params, queryParams) {
-        BlazeLayout.render("new_home");
+        BlazeLayout.render("home");
     }
 })
 
@@ -14,9 +14,9 @@ FlowRouter.route("/new", {
     }
 })
 
-FlowRouter.route("/post/:_pid", {
-    name: "Post_Feed",
-    action(params, queryParams) {
-        BlazeLayout.render("post");
-    }
-})
+// FlowRouter.route("/post/:_pid", {
+//     name: "Post_Feed",
+//     action(params, queryParams) {
+//         BlazeLayout.render("post");
+//     }
+// })
