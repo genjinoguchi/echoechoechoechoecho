@@ -57,14 +57,14 @@ $(document).ready(function(){
         // console.log($(this).attr('id'));
     });
 
-        $(".score").click(function(event) {
-            var curContent = $(this).html();
-            var upvoteCount = parseInt(curContent.split(" ")[1]) + 1;
-            console.log(curContent);
-            console.log(upvoteCount);
-            $( this ).text("score: " + upvoteCount);
+        // $(".score").click(function(event) {
+        //     var curContent = $(this).html();
+        //     var upvoteCount = parseInt(curContent.split(" ")[1]) + 1;
+        //     console.log(curContent);
+        //     console.log(upvoteCount);
+        //     $( this ).text("score: " + upvoteCount);
 
-        });
+        // });
 
         $(document).on('click', '.username-button', function() {
             var username = $("#username-input").val();
@@ -81,7 +81,7 @@ $(document).ready(function(){
 
         $(".change").click(function(event) {
             /* Act on the event */
-            $(".jenji").replaceWith("<input id='username-input' type='text' name='' placeholder='type your name'> <button class='username-button' >change</button>");
+            $(".jenji").replaceWith("<input id='username-input' type='text' name='' placeholder='type your name'> <button class='username-button' id='username-button' >change</button>");
             $(".change").toggle();
         });
 
