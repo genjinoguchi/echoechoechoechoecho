@@ -34,4 +34,8 @@ $(document).ready(function(){
         // console.log($(this).attr('id'));
     });
 
+    $(".score").click(function(event) {
+        // $( this ).text($(this).html(Some text and markup));
+    });
+
 })

@@ -132,7 +132,7 @@
         </div>
       </div>
       <div class="col-md-6 float-left red-background">
-        <!-- {{> comment_con}} -->
+        {{> comment_con}}
       </div>
 
     </div>
@@ -146,7 +146,7 @@
       Gemma
     </div>
     <div class="score pro-score">
-      score hidden
+      score: 0
     </div>
     <div class="comment-text">
       I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
@@ -172,27 +172,6 @@
 
 </template>
 
-<!-- pro reply -->
-<template name="reply_comment_pro">
-  <div class="card comment pro reply-card">
-    <div class="username">
-      Gemma
-    </div>
-    <div class="score pro-score">
-      score hidden
-    </div>
-    <div class="comment-text">
-      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
-    </div>
-    <div class="timestamp">
-      5 minutes ago
-      <div class="reply 0">
-        reply
-      </div>
-    </div>
-  </div>
-</template>
-
 <!-- comment con -->
 <template name="comment_con">
   <div class="card comment con">
@@ -200,7 +179,7 @@
       Gemma
     </div>
     <div class="score pro-score">
-      score hidden
+      score: 0
     </div>
     <div class="comment-text">
       I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
@@ -224,6 +203,51 @@
     </div>
   </div>
 </template>
+
+<!-- pro reply -->
+<template name="reply_comment_pro">
+  <div class="card comment pro reply-card">
+    <div class="username">
+      Gemma
+    </div>
+    <div class="score pro-score">
+      score: 0
+    </div>
+    <div class="comment-text">
+      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+    </div>
+    <div class="timestamp">
+      5 minutes ago
+      <div class="reply 0">
+        reply
+      </div>
+    </div>
+  </div>
+</template>
+
+<!-- con reply -->
+<template name="reply_comment_con">
+  <div class="card comment con reply-card">
+    <div class="username">
+      Gemma
+    </div>
+    <div class="score pro-score">
+      score: 0
+    </div>
+    <div class="comment-text">
+      I mean come on you seriously think these huge companies care if they lose a couple thousand dollars? They make so much that they can afford to lose a little to people who have a little less.
+    </div>
+    <div class="timestamp">
+      5 minutes ago
+      <div class="reply 0">
+        reply
+      </div>
+    </div>
+  </div>
+</template>
+
+
+
 
 <template name="reply">
   <div class="reply-background">

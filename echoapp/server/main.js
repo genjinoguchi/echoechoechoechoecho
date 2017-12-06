@@ -4,6 +4,10 @@ import '/lib/routing.js'
 PostData = new Mongo.Collection('postdata')
 // API configuration
 Meteor.startup(() => {
+
+    //createreply
+    //getreplies
+
     // testing stuff, uncomment to test
     // note: meteor reset to clear out the database (otherwise things will persist)
 
@@ -32,7 +36,7 @@ Meteor.methods({
     create_post: function (headline, description, a1_title, a1_url, a2_title, a2_url, a3_title, a3_url, discussion_question) {
         // Takes in username and post_content, returns the id of the new post.
         if (PostData.find({ type : "global ids" }).count() == 0) {
-            PostData.insert({ type: "global ids", global_pid : 0, global_cid : 0 });
+            PostData.insert({ type: "global ids", global_pid : 0, global_cid : 0, global_rid : 0 });
         }
 
         var temp = PostData.find({ type: "global ids" }).fetch()[0].global_pid;
@@ -77,7 +81,8 @@ Meteor.methods({
         //returns all old/archived posts
         return PostData.find({ type : "post", post_type : "previous" }, { sort : { pid : -1 }}).fetch();
     },
-    add_comment: function(user, post_id, prompt_id, comment_content, time) {
+    //NOTE: side should be "pro" or "con"
+    add_comment: function(user, post_id, side, comment_content, time) {
         // Takes in username, post id, and comment content, and returns the comment id.
         var temp = PostData.find({ type: "global ids" }).fetch()[0].global_cid;
 
@@ -86,21 +91,62 @@ Meteor.methods({
         PostData.insert({
             nickname : user,
             pid : post_id,
-            prid : prompt_id,
+            side : side,
             cid : temp,
             type : "comment",
             content : comment_content,
+            rating : 0,
             time : time
         });
 
         return temp;
     },
-    get_post_comments: function(post_id, prompt_id) {
-        // takes in post id, and returns all the comments for the post.
-        return PostData.find({ pid : post_id, prid : prompt_id, type : "comment" }).fetch();
+    // get_post_comments: function(post_id, prompt_id) {
+    //     // takes in post id, and returns all the comments for the post.
+    //     return PostData.find({ pid : post_id, prid : prompt_id, type : "comment" }).fetch();
+    // },
+    // get_comment: function(post_id, comment_id) {
+    //     // takes in post id and comment id, and returns the comment content.
+    //     return PostData.find({ pid : post_id, cid : comment_id, type : "comment"}).fetch()[0];
+    // },
+    upvote_comment: function(post_id, comment_id) {
+        PostData.update({ pid : post_id, cid : comment_id, type : "comment" }, { $inc : { rating : 1 } })
     },
-    get_comment: function(post_id, comment_id) {
-        // takes in post id and comment id, and returns the comment content.
-        return PostData.find({ pid : post_id, cid : comment_id, type : "comment"}).fetch()[0];
+    get_comment_rating: function(post_id, comment_id) {
+        return PostData.find({ pid : post_id, cid : comment_id, type : "comment" }).fetch()[0].rating;
+    },
+    upvote_reply: function(post_id, comment_id, reply_id) {
+        PostData.update({ pid : post_id, cid : comment_id, rid : reply_id, type : "reply" }, { $inc : { rating : 1 } })
+    },
+    get_reply_rating: function(post_id, comment_id, reply_id) {
+        return PostData.find({ pid : post_id, cid : comment_id, rid : reply_id, type : "reply" }).fetch()[0].rating;
+    },
+    get_pro_comments: function(post_id) {
+        return PostData.find({ pid : post_id, type : "comment", side : "pro"}, { sort : { rating : -1 }}).fetch();
+    },
+    get_con_comments: function(post_id) {
+        return PostData.find({ pid : post_id, type : "comment", side : "con"}, { sort : { rating : -1 }}).fetch();
+    },
+    add_reply: function(user, post_id, comment_id, reply_content, time) {
+        // Takes in username, post id, and comment content, and returns the comment id.
+        var temp = PostData.find({ type: "global ids" }).fetch()[0].global_rid;
+
+        PostData.update({ type : "global ids" }, { $inc : { global_rid : 1 } });
+
+        PostData.insert({
+            nickname : user,
+            pid : post_id,
+            cid : comment_id,
+            rid : temp,
+            rating : 0,
+            type : "reply",
+            content : reply_content,
+            time : time
+        });
+
+        return temp;
+    },
+    get_replies: function(post_id, comment_id) {
+        return PostData.find({ pid : post_id, cid : comment_id, type : "reply" }, {sort : {rid : 1} }).fetch();
     }
 })
