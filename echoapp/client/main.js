@@ -258,7 +258,8 @@ Template.comment_pro.helpers({
 })
 
 
-//// CON /////////////////
+
+///// CON /////////////////
 Template.right_input.events({
     'click #right_input_button'(event, instance) {
         var post_id = 0
@@ -266,6 +267,8 @@ Template.right_input.events({
         user_id = user_id ? user_id : "Anonymous";
         var comment_content = $("#right_input_area").val();
         var timestamp = Date.now();
+        //console.log(comment_content)
+        //console.log(post_id + user_id + comment_content)
         Meteor.call("add_comment", user_id, post_id, "con", comment_content, timestamp, function(err, result) {
             if (err) console.warn(err);
             // FlowRouter.go("/post/" + result); TODO uncomment this
@@ -283,44 +286,73 @@ Template.right_input.events({
     }
 })
 
+Template.comment_con.onRendered(function() {
+    console.log("cid")
+    console.log(this.data.cid)
+    Meteor.call("get_replies", 0, this.data.cid, function(err, result) {
+        if (err) console.warn(err)
+
+        var sesh_id = "";
+        if (result.length > 0) {
+            console.log(result)
+            var sesh_id = "replies_" + result[0].cid
+            for (element in result) {
+                element.format_date = format_date(element.time)
+            }
+            Session.set(sesh_id, result)
+        }
+    })
+})
+
 Template.comment_con.events({
-    'click .reply-reply-button'(event, instance) {
-        var post_id = Session.get("post").pid;
-        var user_id = $(".reply-username-input").val();
+    'click #reply-button'(event, instance) {
+        var post_id = 0
+        var user_id = Session.get("username");
         user_id = user_id ? user_id : "Anonymous";
         var comment_id = this.cid;
-        var reply_content = $(".reply-input").val();
+        var reply_content = $("#reply-input-" + this.cid).val();
+        console.log(this.cid)
+        console.log(reply_content)
         // TODO: assert comment_content is not empty
         var timestamp = Date.now();
+        console.log("this.cid")
+        console.log(this.cid)
+        console.log("Reply content")
+        console.log(reply_content)
         Meteor.call("add_reply", user_id, post_id, comment_id, reply_content, timestamp, function(err, result) {
             if (err) console.warn(err)
 
             var post_id = 0
+            console.log("result")
+            console.log(result)
+            Meteor.call("get_replies", 0, result, function(err, result) {
+                if (err) console.warn(err)
 
-            Meteor.call("get_comments_pro", post_id, function(err, result) {
-                if (err) console.warn(err);
-
-                for (element in result) {
-                    element.format_date = format_date(element.time)
+                var sesh_id = "";
+                if (result.length > 0) {
+                    var sesh_id = "replies_" + result[0].cid
+                    for (element in result) {
+                        element.format_date = format_date(element.time)
+                    }
+                    Session.set(sesh_id, result)
                 }
-                Session.set("comments_pro", result);
             })
+
+            // Meteor.call("get_comments_pro", post_id, function(err, result) {
+            //     if (err) console.warn(err);
+            //
+            //     for (element in result) {
+            //         element.format_date = format_date(element.time)
+            //     }
+            //     Session.set("comments", result);
+            // })
         })
+        $(".reply-input").val("");
     }
 })
 
 Template.comment_con.helpers({
     replies() {
-        Meteor.call("get_replies", this.pid, this.cid, function(err, result) {
-            if (err) console.warn(err)
-
-            var sesh_id = "";
-            if (result.length > 0) {
-                var sesh_id = "replies_" + result[0].cid
-                Session.set(sesh_id, result)
-            }
-        })
-
         var sesh_id = "replies_" + this.cid
         if (Session.get(sesh_id)) {
             return Session.get(sesh_id)
@@ -329,6 +361,7 @@ Template.comment_con.helpers({
         }
     }
 })
+
 
 /*
 Template.hello.onCreated(function helloOnCreated() {

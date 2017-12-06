@@ -177,7 +177,7 @@
       {{this.nickname}}
     </div>
 
-    <div class="score pro-score">score: 0</div>
+    <div class="score pro-score">score: {{this.rating}}</div>
     <div class="upvote">▲</div>
     <div class="comment-text">
       {{this.content}}
@@ -211,26 +211,29 @@
     <div class="username">
       {{this.nickname}}
     </div>
-    <div class="score con-score">score: 0</div>
+    <div class="score con-score">score: {{this.rating}}</div>
     <div class="upvote">▲</div>
     <div class="comment-text">
         {{this.content}}
     </div>
     <div class="timestamp">
         {{this.format_date}}
-      <div class="reply 1">
+      <div class="reply {{this.cid}}">
         reply
       </div>
     </div>
   </div>
 
-  {{> reply_comment_con}}
+  {{#each replies}}
+    {{> reply_comment_con}}
+  {{/each}}
 
   <div id="reply-marker"></div>
-  <div class="sub-reply" id="1">
+
+  <div class="sub-reply" id="{{this.cid}}">
     <div class="card input-card">
-      <textarea type="text" name="reply-input" placeholder="write why you think so!"></textarea>
-      <button class="reply-button">reply</button>
+      <textarea type="text" id="reply-input-{{this.cid}}" placeholder="write why you think so!"></textarea>
+      <button class="reply-button" id="reply-button">reply</button>
     </div>
   </div>
 </template>
@@ -243,7 +246,7 @@
     <div class="username">
         {{this.nickname}}
     </div>
-    <div class="score pro-score">score: 0</div>
+    <div class="score pro-score">score: {{this.rating}}</div>
     <div class="upvote">▲</div>
     <div class="comment-text">
         {{this.content}}
@@ -261,16 +264,16 @@
 <template name="reply_comment_con">
   <div class="card comment con reply-card">
     <div class="username">
-        nick
+        {{this.nickname}}
     </div>
-    <div class="score con-score">score: 0</div>
+    <div class="score con-score">score: {{this.rating}}</div>
     <div class="upvote">▲</div>
     <div class="comment-text">
-        content
+        {{this.content}}
     </div>
     <div class="timestamp">
-      time
-      <div class="reply 1">
+      {{this.format_date}}
+      <div class="reply {{this.cid}}">
         reply
       </div>
     </div>
@@ -306,14 +309,14 @@
 
 <template name="left_input">
   <div class="card input-card">
-    <textarea id="left_input_area" type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+    <textarea id="left_input_area" type="text" name="reply-input" placeholder="write why you think so!"></textarea>
     <button id="left_input_button" class="reply-button">reply</button>
   </div>
 </template>
 
 <template name="right_input">
   <div class="card input-card">
-    <textarea id="right_input_area" type="text" name="repy-input" placeholder="write why you think so!"></textarea>
+    <textarea id="right_input_area" type="text" name="reply-input" placeholder="write why you think so!"></textarea>
     <button id="right_input_button" class="reply-button">reply</button>
   </div>
 </template>
